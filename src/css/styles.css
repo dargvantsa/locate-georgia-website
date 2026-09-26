@@ -100,7 +100,7 @@ a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
 .logo {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
   background: var(--terracotta); color: var(--white);
-  padding: 10px 18px 7px; line-height: 1;
+  padding: 8px 16px; line-height: 1;
   align-self: stretch; margin-block: 0 -1px;
 }
 .logo__main { font-family: var(--sans); font-size: 25px; font-weight: 400; letter-spacing: .08em; }
@@ -218,6 +218,8 @@ a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
 .logo--ink { background: none; color: var(--ink); padding: 0; align-self: auto; margin: 0; }
 .logo--ink .logo__main { font-size: 20px; font-weight: 500; }
 .logo--ink .logo__sub { font-size: 12px; }
+.logo img { display: block; height: 52px; width: auto; max-width: none; }
+.logo--ink img { height: 50px; }
 .footer__nav { display: flex; gap: 26px; flex-wrap: wrap; }
 .footer__nav a:hover, .footer__legal a:hover { color: var(--terracotta); }
 .footer__social { display: flex; align-items: center; gap: 24px; }

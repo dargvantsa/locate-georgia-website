@@ -19,7 +19,7 @@ local_backend: true
 
 site_url: https://locategeorgia.ge
 display_url: https://locategeorgia.ge
-logo_url: /admin/logo.svg
+logo_url: /img/logo-terracotta.png
 
 media_folder: src/img/uploads
 public_folder: /img/uploads
