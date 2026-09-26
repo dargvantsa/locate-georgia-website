@@ -4,7 +4,7 @@
 # ==========================================================
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/locategeorgia
+  repo: dargvantsa/locate-georgia-website
   branch: main
   base_url: https://api.netlify.com
   commit_messages:
