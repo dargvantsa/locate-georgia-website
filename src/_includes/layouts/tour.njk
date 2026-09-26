@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+---
+<section class="tour-hero" style="--hero-img: url('{{ image }}')">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light"><a href="/tours/">Our tours</a></p>
+    <h1>{{ title }}</h1>
+    <div class="tour-hero__meta">
+      {% if duration %}<span><svg><use href="#i-calendar"/></svg>{{ duration }} days</span>{% endif %}
+      {% if price %}<span>from {{ price | euro }} per person</span>{% endif %}
+    </div>
+  </div>
+</section>
+
+<article class="wrap tour-body">
+  {% if summary %}<p class="tour-body__lede">{{ summary }}</p>{% endif %}
+  <div class="prose">{{ content | safe }}</div>
+  <a href="/contact/#plan" class="btn btn--primary">Ask about this tour <svg class="arrow"><use href="#i-arrow"/></svg></a>
+</article>

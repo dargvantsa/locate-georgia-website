@@ -1,0 +1,13 @@
+<a class="tour-card" href="{{ tour.url }}">
+  <div class="tour-card__img"><img src="{{ tour.data.image }}" alt="{{ tour.data.image_alt }}" loading="lazy"></div>
+  <div class="tour-card__body">
+    <div>
+      <h3>{{ tour.data.title }}</h3>
+      <div class="tour-card__meta">
+        {% if tour.data.duration %}<span><svg><use href="#i-calendar"/></svg>{{ tour.data.duration }} days</span>{% endif %}
+        {% if tour.data.price %}<span class="tour-card__price">from {{ tour.data.price | euro }}</span>{% endif %}
+      </div>
+    </div>
+    <svg class="arrow"><use href="#i-arrow"/></svg>
+  </div>
+</a>

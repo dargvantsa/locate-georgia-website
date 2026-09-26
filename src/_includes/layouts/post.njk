@@ -1,0 +1,9 @@
+---
+layout: layouts/base.njk
+---
+<article class="wrap tour-body page-top">
+  <p class="eyebrow"><a href="/journal/">Journal</a></p>
+  <h1 class="page-title">{{ title }}</h1>
+  {% if image %}<img class="post-cover" src="{{ image }}" alt="{{ image_alt }}">{% endif %}
+  <div class="prose">{{ content | safe }}</div>
+</article>

@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+title: Journal
+permalink: /journal/
+---
+<section class="journeys wrap page-top">
+  <p class="eyebrow">Journal</p>
+  <h1 class="page-title">Stories from Georgia</h1>
+  {% if collections.journal.length %}
+  <div class="tour-grid" style="margin-top:32px">
+    {% for post in collections.journal %}
+    <a class="tour-card" href="{{ post.url }}">
+      {% if post.data.image %}<div class="tour-card__img"><img src="{{ post.data.image }}" alt="{{ post.data.image_alt }}" loading="lazy"></div>{% endif %}
+      <div class="tour-card__body"><div><h3>{{ post.data.title }}</h3>
+      <div class="tour-card__meta"><span>{{ post.date.toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric"}) }}</span></div></div>
+      <svg class="arrow"><use href="#i-arrow"/></svg></div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p style="margin-top:20px;color:var(--ink-2)">New stories are on their way.</p>
+  {% endif %}
+</section>

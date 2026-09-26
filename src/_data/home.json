@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title_line_1": "Not just a place.",
+    "title_line_2": "A feeling.",
+    "text": "Discover Georgia through its people, its places and the moments you'll take home.",
+    "button_label": "Find my Georgia",
+    "image": "/img/uploads/hero-mtskheta.jpg",
+    "location": "Mtskheta, Georgia"
+  },
+  "promises": [
+    { "text": "Local knowledge, personal care" },
+    { "text": "Private & group journeys" },
+    { "text": "Georgia, at your own pace" }
+  ],
+  "journeys": {
+    "eyebrow": "Our signature journeys",
+    "title": "Extraordinary places. Personally experienced.",
+    "link_label": "View all tours"
+  },
+  "welcome": {
+    "eyebrow": "A warm welcome",
+    "title_line_1": "Come as a traveller.",
+    "title_line_2": "Feel like a guest.",
+    "text": "At Locate Georgia, we create meaningful travel experiences, connecting you with the people, places and traditions that make Georgia unique. Whether you're here for culture, nature, food or simply a new perspective, we'll help you experience the real Georgia.",
+    "link_label": "Meet Locate Georgia",
+    "image": "/img/uploads/welcome-tbilisi.jpg",
+    "image_alt": "Carved wooden balcony in Old Tbilisi",
+    "handwritten_note": "More\nthan a trip"
+  },
+  "cta": {
+    "title": "Your Georgia starts with a conversation.",
+    "button_label": "Plan my journey",
+    "note": "Tell us your ideas, and we'll create a journey that fits you."
+  }
+}

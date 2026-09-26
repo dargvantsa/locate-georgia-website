@@ -1,0 +1,16 @@
+{
+  "core": [
+    { "title": "Transfers", "text": "Efficient, reliable and comfortable transfers, so every part of your journey runs smoothly.", "image": "" },
+    { "title": "Hotels", "text": "Hand-picked stays offering comfort, style and good value across Georgia.", "image": "" },
+    { "title": "Tours", "text": "Georgia's hidden gems, culture and nature with expert local guides.", "image": "" },
+    { "title": "Visa support", "text": "Help with your visa application, so getting here is simple.", "image": "" },
+    { "title": "Travel insurance", "text": "Reliable cover for peace of mind throughout your trip.", "image": "" },
+    { "title": "Flight tickets", "text": "Flights to and from Georgia at good fares.", "image": "" }
+  ],
+  "special": [
+    { "title": "MICE", "text": "Meetings, incentives, conferences and exhibitions, planned end to end.", "image": "" },
+    { "title": "Events & weddings", "text": "Gatherings and celebrations planned around your needs.", "image": "" },
+    { "title": "Helicopter rides", "text": "See the Caucasus from above on a private helicopter flight.", "image": "" },
+    { "title": "Yacht rides", "text": "Private yacht trips on the Black Sea coast.", "image": "" }
+  ]
+}

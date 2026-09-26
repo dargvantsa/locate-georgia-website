@@ -1,0 +1,16 @@
+{
+  "name": "locategeorgia",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "type": "module"
+}

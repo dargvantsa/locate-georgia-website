@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+title: Our tours
+permalink: /tours/
+---
+<section class="journeys wrap page-top" aria-labelledby="tours-title">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">Our tours</p>
+      <h1 id="tours-title" class="page-title">Journeys through Georgia</h1>
+    </div>
+  </div>
+  <div class="tour-grid">
+    {% for tour in collections.tours %}{% include "partials/tour-card.njk" %}{% endfor %}
+  </div>
+</section>

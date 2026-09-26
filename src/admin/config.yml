@@ -1,0 +1,185 @@
+# ==========================================================
+#  Locate Georgia — admin panel settings (Decap CMS)
+#  After the site is on GitHub, replace YOUR-GITHUB-USERNAME below.
+# ==========================================================
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/locategeorgia
+  branch: main
+  base_url: https://api.netlify.com
+  commit_messages:
+    create: "Add {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "Upload photo “{{path}}”"
+    deleteMedia: "Delete photo “{{path}}”"
+
+# Lets the admin panel work on your computer without logging in (npx decap-server)
+local_backend: true
+
+site_url: https://locategeorgia.ge
+display_url: https://locategeorgia.ge
+logo_url: /admin/logo.svg
+
+media_folder: src/img/uploads
+public_folder: /img/uploads
+
+collections:
+  # ---------------- Tours ----------------
+  - name: tours
+    label: Tours
+    label_singular: Tour
+    description: Every tour on the website. Tick "Show on homepage" for up to three signature journeys.
+    folder: src/tours
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}  ·  from €{{price}}"
+    sortable_fields: [order, title, price]
+    fields:
+      - { label: Tour name, name: title, widget: string }
+      - { label: Short description, name: summary, widget: text, hint: "One or two sentences. Shown at the top of the tour page and in Google results." }
+      - { label: Duration (days), name: duration, widget: number, value_type: int, min: 1, required: false }
+      - { label: Price from (€ per person), name: price, widget: number, value_type: int, min: 0, required: false }
+      - { label: Main photo, name: image, widget: image, hint: "Landscape photo, at least 1600px wide." }
+      - { label: Photo description, name: image_alt, widget: string, required: false, hint: "What the photo shows, e.g. 'Gergeti Trinity Church under Mount Kazbek'. Helps Google and blind visitors." }
+      - { label: Show on homepage, name: featured, widget: boolean, default: false }
+      - { label: Order, name: order, widget: number, value_type: int, default: 10, hint: "Lower numbers appear first." }
+      - { label: Published, name: published, widget: boolean, default: true, hint: "Switch off to hide the tour without deleting it." }
+      - { label: Itinerary & details, name: body, widget: markdown }
+
+  # ---------------- Journal ----------------
+  - name: journal
+    label: Journal
+    label_singular: Journal post
+    folder: src/journal
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} ({{year}}-{{month}}-{{day}})"
+    sortable_fields: [date, title]
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, date_format: "DD MMM YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { label: Short description, name: summary, widget: text, required: false }
+      - { label: Cover photo, name: image, widget: image, required: false }
+      - { label: Photo description, name: image_alt, widget: string, required: false }
+      - { label: Published, name: published, widget: boolean, default: true }
+      - { label: Text, name: body, widget: markdown }
+
+  # ---------------- Pages ----------------
+  - name: pages
+    label: Pages
+    editor: { preview: false }
+    files:
+      - name: home
+        label: Homepage
+        file: src/_data/home.json
+        fields:
+          - label: Top banner
+            name: hero
+            widget: object
+            collapsed: false
+            fields:
+              - { label: Headline line 1, name: title_line_1, widget: string }
+              - { label: Headline line 2 (italic), name: title_line_2, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Button label, name: button_label, widget: string }
+              - { label: Background photo, name: image, widget: image, hint: "Wide landscape photo, at least 2400px wide. The left side sits under the text, so a calmer left side works best." }
+              - { label: Photo location, name: location, widget: string, required: false, hint: "Shown bottom-right, e.g. 'Mtskheta, Georgia'." }
+          - label: Three promises (under the search bar)
+            name: promises
+            widget: list
+            min: 3
+            max: 3
+            allow_add: false
+            field: { label: Text, name: text, widget: string }
+          - label: Signature journeys section
+            name: journeys
+            widget: object
+            hint: "The three tours shown here are the ones ticked 'Show on homepage' under Tours."
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Link label, name: link_label, widget: string }
+          - label: Welcome section
+            name: welcome
+            widget: object
+            fields:
+              - { label: Small heading, name: eyebrow, widget: string }
+              - { label: Title line 1, name: title_line_1, widget: string }
+              - { label: Title line 2, name: title_line_2, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Link label, name: link_label, widget: string }
+              - { label: Photo, name: image, widget: image, hint: "Works best as a portrait or square photo." }
+              - { label: Photo description, name: image_alt, widget: string, required: false }
+              - { label: Handwritten note, name: handwritten_note, widget: text, required: false, hint: "Press Enter for a new line." }
+          - label: Terracotta banner (shown on every page)
+            name: cta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Button label, name: button_label, widget: string }
+              - { label: Small text, name: note, widget: text }
+
+      - name: about
+        label: About us & team
+        file: src/_data/team.json
+        fields:
+          - { label: Introduction, name: intro, widget: text }
+          - label: Team members
+            name: members
+            widget: list
+            summary: "{{fields.name}} — {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Email, name: email, widget: string, required: false }
+              - { label: Photo, name: photo, widget: image, required: false }
+
+      - name: services
+        label: Travel services
+        file: src/_data/services.json
+        fields:
+          - label: Main services
+            name: core
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Service, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: Photo, name: image, widget: image, required: false }
+          - label: Special services
+            name: special
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Service, name: title, widget: string }
+              - { label: Description, name: text, widget: text }
+              - { label: Photo, name: image, widget: image, required: false }
+
+  # ---------------- Settings ----------------
+  - name: settings
+    label: Contact & settings
+    editor: { preview: false }
+    files:
+      - name: site
+        label: Contact details & social links
+        file: src/_data/site.json
+        fields:
+          - { label: Company name, name: name, widget: string }
+          - { label: Legal name (footer), name: legal_name, widget: string }
+          - { label: Top bar text, name: topbar_tagline, widget: string }
+          - { label: Google description, name: meta_description, widget: text, hint: "Shown under your name in Google results. About 150 characters." }
+          - { label: Email, name: email, widget: string }
+          - { label: Phone 1, name: phone_1, widget: string }
+          - { label: Phone 2, name: phone_2, widget: string, required: false }
+          - { label: Address, name: address, widget: string }
+          - { label: WhatsApp link, name: whatsapp, widget: string, required: false }
+          - { label: Instagram, name: instagram, widget: string, required: false }
+          - { label: Facebook, name: facebook, widget: string, required: false }
+          - { label: LinkedIn, name: linkedin, widget: string, required: false }
+          - { label: YouTube, name: youtube, widget: string, required: false }
+          - { label: Footer tagline, name: footer_tagline, widget: text, hint: "Press Enter for a new line." }
