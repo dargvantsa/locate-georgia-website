@@ -118,7 +118,7 @@ collections:
             fields:
               - { label: Small heading, name: eyebrow, widget: string }
               - { label: Title line 1, name: title_line_1, widget: string }
-              - { label: Title line 2, name: title_line_2, widget: string }
+              - { label: Title line 2, name: title_line_2, widget: string, required: false, hint: "Optional second line." }
               - { label: Text, name: text, widget: text }
               - { label: Link label, name: link_label, widget: string }
               - { label: Photo, name: image, widget: image, hint: "Works best as a portrait or square photo." }

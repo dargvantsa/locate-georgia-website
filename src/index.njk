@@ -109,7 +109,7 @@ permalink: /
   <div class="welcome__img"><img src="{{ w.image }}" alt="{{ w.image_alt }}" loading="lazy"></div>
   <div class="welcome__text">
     <p class="eyebrow">{{ w.eyebrow }}</p>
-    <h2 id="welcome-title">{{ w.title_line_1 }}<br>{{ w.title_line_2 }}</h2>
+    <h2 id="welcome-title">{{ w.title_line_1 }}{% if w.title_line_2 %}<br>{{ w.title_line_2 }}{% endif %}</h2>
     <p>{{ w.text }}</p>
     <a href="/about/" class="link-underline">{{ w.link_label }} <svg class="arrow"><use href="#i-arrow"/></svg></a>
   </div>
