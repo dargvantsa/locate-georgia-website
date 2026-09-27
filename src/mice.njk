@@ -1,0 +1,78 @@
+---
+layout: layouts/base.njk
+title: MICE & Events
+permalink: /mice/
+---
+{%- set m = mice -%}
+<section class="page-hero" style="--hero-img: url('{{ m.hero_image }}')">
+  <div class="wrap">
+    <h1>{{ m.title_line_1 }}{% if m.title_line_2 %}<br><em>{{ m.title_line_2 }}</em>{% endif %}</h1>
+  </div>
+</section>
+
+<section class="about-intro wrap">
+  <div class="about-intro__text">
+    {% if m.intro_title %}<p class="eyebrow">{{ m.intro_title }}</p>{% endif %}
+    <p class="about-intro__lede">{{ m.intro }}</p>
+  </div>
+</section>
+
+<section class="wrap mice-services" aria-labelledby="ms-title">
+  <h2 id="ms-title" class="section-title">{{ m.services_title }}</h2>
+  <div class="mice-grid">
+    {% for s in m.services %}
+    <article class="mice-card">
+      {% if s.image %}<div class="mice-card__img"><img src="{{ s.image }}" alt="" loading="lazy"></div>{% endif %}
+      <div class="mice-card__body">
+        <span class="mice-card__num">{{ loop.index }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="mice-steps" aria-labelledby="st-title">
+  <div class="wrap">
+    <h2 id="st-title" class="section-title">{{ m.steps_title }}</h2>
+    <ol class="steps">
+      {% for s in m.steps %}
+      <li><span class="steps__num">{{ loop.index }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="partner" id="mice-form" aria-labelledby="mf-title">
+  <div class="partner__img"><img src="{{ m.form_image }}" alt="{{ m.form_image_alt }}" loading="lazy"></div>
+  <div class="partner__body">
+    <div>
+      <h2 id="mf-title">{{ m.form_title }}</h2>
+      {% if m.form_text %}<p class="partner__text">{{ m.form_text }}</p>{% endif %}
+    </div>
+    <form class="partner-form" name="mice-inquiry" method="POST" action="/mice/?sent=1#mice-form" data-netlify="true" netlify-honeypot="company_website" data-success="{{ m.success_message }}">
+      <input type="hidden" name="form-name" value="mice-inquiry">
+      <p class="partner-form__hp" hidden><label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+      <label class="field"><span class="sr-only">Name and surname</span><input id="mf-name" name="name" type="text" placeholder="Name and surname" autocomplete="name" required></label>
+      <div class="field-row field-row--half">
+        <label class="field"><span class="sr-only">Email</span><input id="mf-email" name="email" type="email" placeholder="Email" autocomplete="email" required></label>
+        <label class="field"><span class="sr-only">Phone</span><input id="mf-phone" name="phone" type="tel" placeholder="Phone" autocomplete="tel"></label>
+      </div>
+      <label class="field"><span class="sr-only">Company</span><input id="mf-company" name="company" type="text" placeholder="Company" autocomplete="organization"></label>
+      <div class="field-row field-row--half">
+        <label class="field"><span class="sr-only">Type of event</span>
+          <select id="mf-type" name="event_type">
+            <option value="">Type of event</option>
+            {% for s in m.services %}<option>{{ s.title }}</option>{% endfor %}
+            <option>Other</option>
+          </select></label>
+        <label class="field"><span class="sr-only">Number of guests</span><input id="mf-guests" name="guests" type="number" min="1" placeholder="Number of guests"></label>
+      </div>
+      <label class="field"><span class="sr-only">Dates</span><input id="mf-dates" name="dates" type="text" placeholder="Preferred dates, e.g. May 2027"></label>
+      <label class="field"><span class="sr-only">Message</span><textarea id="mf-message" name="message" rows="4" placeholder="Tell us about your event"></textarea></label>
+      <button type="submit" class="btn btn--primary partner-form__btn">Send request</button>
+      <p class="partner-form__status" role="status" hidden></p>
+    </form>
+  </div>
+</section>

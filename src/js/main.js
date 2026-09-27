@@ -99,13 +99,12 @@
     build();
   });
 
-  // B2B partner form: sends to Netlify Forms without leaving the page
-  var pform = document.querySelector('.partner-form');
-  if (pform) {
+  // Enquiry forms (B2B, MICE): send to Netlify Forms without leaving the page
+  document.querySelectorAll('.partner-form').forEach(function (pform) {
     var status = pform.querySelector('.partner-form__status');
     var btn = pform.querySelector('button[type="submit"]');
     var say = function (msg, err) { status.textContent = msg; status.hidden = false; status.classList.toggle('is-error', !!err); };
-    if (/[?&]sent=1/.test(location.search)) say(pform.getAttribute('data-success') || 'Thank you! We will be in touch shortly.');
+    if (/[?&]sent=1/.test(location.search) && location.hash && pform.closest(location.hash)) say(pform.getAttribute('data-success') || 'Thank you! We will be in touch shortly.');
     pform.addEventListener('submit', function (e) {
       e.preventDefault();
       btn.disabled = true;
@@ -119,7 +118,8 @@
         .catch(function () { say('Sorry, the form could not be sent. Please email us at info@locategeorgia.ge.', true); })
         .then(function () { btn.disabled = false; });
     });
-  }
+  });
+
 
   // Tours page: checkbox filters on the left (also reads ?duration=&category= from the homepage search)
   var grid = document.getElementById('tourGrid');

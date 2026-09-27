@@ -230,6 +230,38 @@ collections:
           - { label: Button label, name: button_label, widget: string }
           - { label: Thank-you message, name: success_message, widget: text }
 
+      - name: mice
+        label: MICE & Events
+        file: src/_data/mice.json
+        fields:
+          - { label: Title line 1, name: title_line_1, widget: string }
+          - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
+          - { label: Top photo, name: hero_image, widget: image }
+          - { label: Intro heading, name: intro_title, widget: string, required: false }
+          - { label: Intro text, name: intro, widget: text }
+          - { label: Services heading, name: services_title, widget: string }
+          - label: Services
+            name: services
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Photo, name: image, widget: image, required: false }
+          - { label: Steps heading, name: steps_title, widget: string }
+          - label: Steps
+            name: steps
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Form heading, name: form_title, widget: string }
+          - { label: Form text, name: form_text, widget: text, required: false }
+          - { label: Form photo, name: form_image, widget: image }
+          - { label: Form photo description, name: form_image_alt, widget: string, required: false }
+          - { label: Thank-you message, name: success_message, widget: text }
+
       - name: tours_page
         label: Tours page
         file: src/_data/toursPage.json

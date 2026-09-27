@@ -1,0 +1,64 @@
+{
+  "title_line_1": "MICE & Events",
+  "title_line_2": "in Georgia",
+  "hero_image": "/img/uploads/5c5a19_f8fd2dc9a8ed460f814a19600c56b0ab~mv2.avif",
+  "intro_title": "Meetings, incentives, conferences and events",
+  "intro": "From a board meeting in Tbilisi to an incentive trip for two hundred guests, we plan and run corporate travel and events across Georgia. One team handles everything: venues, hotels, transport, programmes, guides and on-site coordination, so you can focus on your guests.",
+  "services_title": "What we organise",
+  "services": [
+    {
+      "title": "Meetings",
+      "text": "Board meetings, workshops and company retreats in city hotels, wine estates and mountain resorts.",
+      "image": ""
+    },
+    {
+      "title": "Incentive trips",
+      "text": "Reward programmes built around Georgian wine, food, culture and the Caucasus mountains.",
+      "image": ""
+    },
+    {
+      "title": "Conferences",
+      "text": "Venue sourcing, delegate accommodation, transfers, registration support and social programmes.",
+      "image": ""
+    },
+    {
+      "title": "Exhibitions & trade fairs",
+      "text": "Logistics, accommodation and side programmes for exhibitors and visitors.",
+      "image": ""
+    },
+    {
+      "title": "Events & weddings",
+      "text": "Gala dinners, supras, celebrations and destination weddings, planned around your needs.",
+      "image": ""
+    },
+    {
+      "title": "Special experiences",
+      "text": "Helicopter flights over the Caucasus, private yacht trips on the Black Sea, wine tastings and cooking classes.",
+      "image": ""
+    }
+  ],
+  "steps_title": "How we work",
+  "steps": [
+    {
+      "title": "Your brief",
+      "text": "Tell us the dates, group size, budget and goals of your event."
+    },
+    {
+      "title": "Proposal",
+      "text": "We send a tailored programme with venues, hotels and a clear quote."
+    },
+    {
+      "title": "Planning",
+      "text": "We book and coordinate every supplier and keep you updated."
+    },
+    {
+      "title": "On the ground",
+      "text": "Our team is with your group from arrival to departure, 24/7."
+    }
+  ],
+  "form_title": "Tell us about your event",
+  "form_text": "Share a few details and our MICE team will reply with ideas and a proposal.",
+  "form_image": "/img/uploads/b2b-trade-show.jpg",
+  "form_image_alt": "The Locate Georgia team at an international travel trade show",
+  "success_message": "Thank you! We have received your request and will reply shortly."
+}
