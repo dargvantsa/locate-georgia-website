@@ -24,6 +24,29 @@ layout: layouts/base.njk
     </section>
     {% endif %}
 
+    {%- set pins = [] -%}
+    {%- for v in (places or []) -%}{% for pl in tourPlaces %}{% if pl.value == v %}{% set pins = (pins.push(pl), pins) %}{% endif %}{% endfor %}{%- endfor -%}
+    {% if pins.length %}
+    <section class="tour-block tour-map" aria-labelledby="map-title">
+      <h2 id="map-title">Where we go</h2>
+      <figure class="gmap">
+        <svg viewBox="0 0 {{ georgiaMap.width }} {{ georgiaMap.height }}" role="img" aria-label="Map of Georgia showing: {% for p in pins %}{{ p.label }}{% if not loop.last %}, {% endif %}{% endfor %}">
+          <path class="gmap__land" d="{{ georgiaMap.path }}"/>
+          {% for p in pins %}
+          {%- set x = p.lng | mapX(georgiaMap) -%}{%- set y = p.lat | mapY(georgiaMap) -%}
+          <g class="gmap__pin" transform="translate({{ x }} {{ y }})">
+            <path d="M0 0 C-5 -11 -17 -18 -17 -31 A17 17 0 1 1 17 -31 C17 -18 5 -11 0 0 Z"/>
+            <text x="0" y="-25" text-anchor="middle">{{ loop.index }}</text>
+          </g>
+          {% endfor %}
+        </svg>
+        <figcaption>
+          <ol class="gmap__list">{% for p in pins %}<li><span>{{ loop.index }}</span>{{ p.label }}</li>{% endfor %}</ol>
+        </figcaption>
+      </figure>
+    </section>
+    {% endif %}
+
     <section class="tour-block" aria-labelledby="it">
       <h2 id="it">Itinerary</h2>
       {% if itinerary and itinerary.length %}

@@ -51,6 +51,13 @@ collections:
         required: false
         hint: "Used by the filters on the Tours page and the homepage search."
         options: [{ label: Private tours, value: private }, { label: Group tours, value: group }, { label: Family holidays, value: family }, { label: Romantic getaways, value: romantic }, { label: Ski/winter tours, value: winter }, { label: Wine tours, value: wine }, { label: Gastro tours, value: gastro }, { label: Hiking tours, value: hiking }, { label: Jeep tours, value: jeep }, { label: Cultural tours, value: cultural }]
+      - label: Places on the map
+        name: places
+        widget: select
+        multiple: true
+        required: false
+        hint: "Marked on the map of Georgia above the itinerary. Ask Claude to add a place that is missing from the list."
+        options: [{ label: "Tbilisi", value: tbilisi }, { label: "Mtskheta", value: mtskheta }, { label: "Jvari Monastery", value: jvari }, { label: "Ananuri", value: ananuri }, { label: "Gudauri", value: gudauri }, { label: "Kazbegi (Stepantsminda)", value: kazbegi }, { label: "Gergeti Trinity Church", value: gergeti }, { label: "Gori", value: gori }, { label: "Uplistsikhe", value: uplistsikhe }, { label: "Borjomi", value: borjomi }, { label: "Bakuriani", value: bakuriani }, { label: "Akhaltsikhe (Rabati)", value: akhaltsikhe }, { label: "Vardzia", value: vardzia }, { label: "Kutaisi", value: kutaisi }, { label: "Gelati Monastery", value: gelati }, { label: "Prometheus Cave", value: prometheus }, { label: "Martvili Canyon", value: martvili }, { label: "Okatse Canyon", value: okatse }, { label: "Batumi", value: batumi }, { label: "Mestia", value: mestia }, { label: "Ushguli", value: ushguli }, { label: "Sighnaghi", value: signagi }, { label: "Telavi", value: telavi }, { label: "Kvareli", value: kvareli }, { label: "Alaverdi Monastery", value: alaverdi }, { label: "Tsinandali", value: tsinandali }, { label: "David Gareja", value: davidgareja }, { label: "Tusheti (Omalo)", value: tusheti }, { label: "Juta", value: juta }, { label: "Zugdidi", value: zugdidi }, { label: "Tskaltubo", value: tskaltubo }, { label: "Sataplia", value: sataplia }, { label: "Chiatura", value: chiatura }, { label: "Kobuleti", value: kobuleti }, { label: "Lagodekhi", value: lagodekhi }]
       - { label: Highlights, name: highlights, widget: list, required: false, field: { label: Highlight, name: text, widget: string } }
       - label: Itinerary (day by day)
         name: itinerary

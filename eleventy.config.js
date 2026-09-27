@@ -41,6 +41,9 @@ export default function (eleventyConfig) {
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
       .replace(/\n/g, "<br>")
   );
+  // Georgia map: lat/lng -> x/y in the outline's coordinate space
+  eleventyConfig.addFilter("mapX", (lng, m) => (m.pad + (lng - m.lon0) * m.k * m.scale).toFixed(1));
+  eleventyConfig.addFilter("mapY", (lat, m) => (m.pad + (m.lat1 - lat) * m.scale).toFixed(1));
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("digits", (s) => String(s || "").replace(/[^\d+]/g, ""));
 
