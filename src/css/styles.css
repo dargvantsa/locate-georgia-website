@@ -358,7 +358,7 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
 .member { background: var(--card); padding: 0 0 20px; box-shadow: 0 1px 0 var(--line); display: grid; gap: 4px; align-content: start; }
 .member__photo { aspect-ratio: 4 / 5; background: var(--paper-2); display: grid; place-items: center; overflow: hidden; margin-bottom: 14px; }
-.member__photo img { width: 100%; height: 100%; object-fit: cover; }
+.member__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
 .member__initials { font-family: var(--serif); font-size: clamp(40px, 5vw, 56px); color: var(--terracotta); letter-spacing: .02em; }
 .member h3, .member p, .member a { padding-inline: 18px; }
 .member h3 { font-size: 20px; }
