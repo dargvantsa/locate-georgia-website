@@ -136,7 +136,31 @@ collections:
         label: About us & team
         file: src/_data/team.json
         fields:
+          - { label: Small heading, name: eyebrow, widget: string }
+          - { label: Page title, name: title, widget: string }
+          - { label: Top photo, name: hero_image, widget: image, hint: "Wide landscape photo." }
           - { label: Introduction, name: intro, widget: text }
+          - label: Numbers
+            name: highlights
+            widget: list
+            summary: "{{fields.number}} {{fields.label}}"
+            fields:
+              - { label: Number, name: number, widget: string, hint: "e.g. 2017, 10+, 24/7" }
+              - { label: Label, name: label, widget: string }
+          - { label: Story heading, name: story_title, widget: string }
+          - { label: Story, name: story, widget: text, hint: "Leave an empty line between paragraphs." }
+          - { label: Story photo, name: story_image, widget: image }
+          - { label: Story photo description, name: story_image_alt, widget: string, required: false }
+          - { label: Values heading, name: values_title, widget: string }
+          - label: Values
+            name: values
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Team heading, name: team_title, widget: string }
+          - { label: Team text, name: team_intro, widget: string }
           - label: Team members
             name: members
             widget: list

@@ -31,7 +31,7 @@
     <nav class="nav" id="nav" aria-label="Main">
       <a href="/tours/"{% if page.url.startsWith("/tours") %} aria-current="page"{% endif %}>Our tours</a>
       <a href="/services/">Travel services</a>
-      <a href="/about/">About us</a>
+      <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About us</a>
       <a href="/journal/">Journal</a>
       <a href="/contact/">Contact</a>
       <a href="/contact/#plan" class="btn btn--primary nav__cta">Plan my journey <svg class="arrow"><use href="#i-arrow"/></svg></a>

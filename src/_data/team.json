@@ -1,10 +1,81 @@
 {
+  "eyebrow": "About us",
+  "title": "A family company, sharing the Georgia we love",
+  "hero_image": "/img/uploads/5c5a19_f8fd2dc9a8ed460f814a19600c56b0ab~mv2.avif",
   "intro": "At Locate Georgia, we create journeys that go beyond sightseeing. Our mission is to immerse travelers in the real spirit of Georgia. We are a family-owned inbound tour operator, founded in Tbilisi in 2017 by a team with more than 15 years in tourism. We believe every traveler deserves a unique and authentic experience, which is why we specialise in customised tours.",
+  "story_title": "Our story",
+  "story": "Locate Georgia began in Tbilisi in 2017, when a small team of friends and family turned years of guiding and hosting into a company of their own. Today we welcome travellers from all over the world, from first-time visitors on a short getaway to groups exploring every corner of the country.\n\nWe plan every journey ourselves: the route, the guides, the family-run guesthouses, the wine cellars and the tables where you will share a supra. Because we live here, we know which road is open after the snow, which village is celebrating that week, and which family makes the best khachapuri in the valley.",
+  "story_image": "/img/uploads/welcome-group-kazbegi.jpg",
+  "story_image_alt": "Locate Georgia travel group at Gergeti Trinity Church with Mount Kazbek behind",
+  "highlights": [
+    {
+      "number": "2017",
+      "label": "Founded in Tbilisi"
+    },
+    {
+      "number": "10+",
+      "label": "Years of experience"
+    },
+    {
+      "number": "100+",
+      "label": "Worldwide partners"
+    },
+    {
+      "number": "24/7",
+      "label": "Support during your stay"
+    }
+  ],
+  "values_title": "What you can expect from us",
+  "values": [
+    {
+      "title": "Local knowledge",
+      "text": "We were born here. Our guides and coordinators share the places, stories and people they know personally."
+    },
+    {
+      "title": "Journeys made for you",
+      "text": "Private or group, five days or two weeks: every itinerary is built around your pace, interests and budget."
+    },
+    {
+      "title": "Personal care",
+      "text": "One team looks after you from the first message to the airport farewell, and we are reachable day and night."
+    },
+    {
+      "title": "Honest partners",
+      "text": "We work with trusted hotels, drivers, wineries and families across Georgia, many of them for years."
+    }
+  ],
+  "team_title": "Meet the team",
+  "team_intro": "The people who will plan your journey and look after you in Georgia.",
   "members": [
-    { "name": "Gvantsa Darchia", "role": "CEO & Co-founder, English-speaking Travel Coordinator", "email": "gvantsa@locategeorgia.ge", "photo": "" },
-    { "name": "Giorgi Paikridze", "role": "Managing Partner", "email": "info@locategeorgia.ge", "photo": "" },
-    { "name": "Mari Merabishvili", "role": "Co-founder, English-speaking Travel Coordinator", "email": "info@locategeorgia.ge", "photo": "" },
-    { "name": "Khatia Murjikneli", "role": "Travel Coordinator", "email": "info@locategeorgia.ge", "photo": "" },
-    { "name": "Teo Merabishvili", "role": "Office Manager", "email": "info@locategeorgia.ge", "photo": "" }
+    {
+      "name": "Gvantsa Darchia",
+      "role": "CEO & Co-founder, English-speaking Travel Coordinator",
+      "email": "gvantsa@locategeorgia.ge",
+      "photo": ""
+    },
+    {
+      "name": "Giorgi Paikridze",
+      "role": "Managing Partner",
+      "email": "info@locategeorgia.ge",
+      "photo": ""
+    },
+    {
+      "name": "Mari Merabishvili",
+      "role": "Co-founder, English-speaking Travel Coordinator",
+      "email": "info@locategeorgia.ge",
+      "photo": ""
+    },
+    {
+      "name": "Khatia Murjikneli",
+      "role": "Travel Coordinator",
+      "email": "info@locategeorgia.ge",
+      "photo": ""
+    },
+    {
+      "name": "Teo Merabishvili",
+      "role": "Office Manager",
+      "email": "info@locategeorgia.ge",
+      "photo": ""
+    }
   ]
 }

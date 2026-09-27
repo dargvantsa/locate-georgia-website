@@ -1,0 +1,63 @@
+---
+layout: layouts/base.njk
+title: About us
+permalink: /about/
+---
+{%- set a = team -%}
+<section class="page-hero" style="--hero-img: url('{{ a.hero_image }}')">
+  <div class="wrap">
+    <p class="eyebrow eyebrow--light">{{ a.eyebrow }}</p>
+    <h1>{{ a.title }}</h1>
+  </div>
+</section>
+
+<section class="about-intro wrap">
+  <p class="about-intro__lede">{{ a.intro }}</p>
+  <ul class="stats">
+    {% for h in a.highlights %}
+    <li><span class="stats__num">{{ h.number }}</span><span class="stats__label">{{ h.label }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="about-story">
+  <div class="about-story__img"><img src="{{ a.story_image }}" alt="{{ a.story_image_alt }}" loading="lazy"></div>
+  <div class="about-story__text">
+    <p class="eyebrow">{{ a.story_title }}</p>
+    {% for para in a.story.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
+  </div>
+</section>
+
+<section class="about-values wrap" aria-labelledby="values-title">
+  <h2 id="values-title">{{ a.values_title }}</h2>
+  <div class="values-grid">
+    {% for v in a.values %}
+    <div class="value">
+      <h3>{{ v.title }}</h3>
+      <p>{{ v.text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about-team wrap" aria-labelledby="team-title">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">{{ a.team_title }}</p>
+      <h2 id="team-title">{{ a.team_intro }}</h2>
+    </div>
+  </div>
+  <div class="team-grid">
+    {% for m in a.members %}
+    <article class="member">
+      <div class="member__photo">
+        {% if m.photo %}<img src="{{ m.photo }}" alt="{{ m.name }}" loading="lazy">
+        {% else %}{% set parts = m.name.split(" ") %}<span class="member__initials" aria-hidden="true">{{ parts[0][0] }}{{ parts[1][0] if parts[1] }}</span>{% endif %}
+      </div>
+      <h3>{{ m.name }}</h3>
+      <p class="member__role">{{ m.role }}</p>
+      {% if m.email %}<a class="member__email" href="mailto:{{ m.email }}">{{ m.email }}</a>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
