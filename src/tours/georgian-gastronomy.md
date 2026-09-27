@@ -1,9 +1,10 @@
 ---
 title: Georgian gastronomy
-summary: A journey through Georgian kitchens, markets and supras, with cooking, tasting and time with the families who keep the traditions alive.
-duration:
+summary: A journey through Georgian kitchens, markets and supras, with cooking,
+  tasting and time with the families who keep the traditions alive.
+duration: 10
 price: 1990
-image: /img/uploads/tour-wine.jpg
+image: /img/uploads/istock-1164983166-2-.jpg
 image_alt: Georgian food and wine
 featured: false
 order: 4
