@@ -56,12 +56,6 @@ included:
   - Professional English-speaking guide
   - Entrance fees to the sites in the itinerary
   - Bottled water during transfers
-not_included:
-  - International flights
-  - Lunches and dinners
-  - Travel insurance
-  - Personal expenses
-  - Tips for guide and driver
 gallery:
   - image: /img/uploads/about-gergeti.jpg
     alt: "Gergeti Trinity Church, Kazbegi"

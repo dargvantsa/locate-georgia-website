@@ -463,6 +463,7 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .tick-list li { position: relative; padding-left: 28px; color: var(--ink-2); }
 .tick-list li::before { content: ""; position: absolute; left: 2px; top: .45em; width: 12px; height: 7px; border-left: 2px solid var(--terracotta); border-bottom: 2px solid var(--terracotta); transform: rotate(-45deg); }
 .tick-list--no li::before { width: 12px; height: 2px; border: 0; background: var(--ink-3); transform: none; top: .75em; }
+.tour-empty { background: var(--card); border: 1px dashed var(--terracotta-soft); padding: 22px 24px; color: var(--ink-2); display: grid; gap: 6px; }
 .itinerary { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .itinerary__day { border-bottom: 1px solid var(--line); }
 .itinerary summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 4px; cursor: pointer; list-style: none; }

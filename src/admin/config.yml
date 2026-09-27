@@ -89,8 +89,8 @@ collections:
         fields:
           - { label: Photo, name: image, widget: image }
           - { label: Caption, name: alt, widget: string, required: false, hint: "What the photo shows. Also shown on the photo." }
-      - { label: Included, name: included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
-      - { label: Excluded, name: not_included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
+      - { label: Included, name: included, widget: list, required: false, field: { label: Item, name: text, widget: string }, hint: "Leave empty to use the standard list from Pages → Tours page." }
+      - { label: Excluded, name: not_included, widget: list, required: false, field: { label: Item, name: text, widget: string }, hint: "Leave empty to use the standard list from Pages → Tours page." }
       - { label: Show on homepage, name: featured, widget: boolean, default: false }
       - { label: Order, name: order, widget: number, value_type: int, default: 10, hint: "Lower numbers appear first." }
       - { label: Published, name: published, widget: boolean, default: true, hint: "Switch off to hide the tour without deleting it." }
@@ -238,6 +238,8 @@ collections:
           - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
           - { label: Top photo, name: image, widget: image }
           - { label: Heading above the tours, name: intro, widget: string, required: false }
+          - { label: Standard "Included" list, name: included, widget: list, field: { label: Item, name: text, widget: string }, hint: "Used by every tour that has no Included list of its own." }
+          - { label: Standard "Excluded" list, name: excluded, widget: list, field: { label: Item, name: text, widget: string }, hint: "Used by every tour that has no Excluded list of its own." }
           - { label: Standard note under price tables, name: price_note, widget: text, required: false, hint: "Shown under every tour's price table. Leave an empty line between paragraphs." }
 
       - name: services

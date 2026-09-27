@@ -3,5 +3,20 @@
   "title_line_2": "",
   "image": "/img/uploads/tours-cover-tbilisi.jpg",
   "intro": "Our signature tours",
-  "price_note": "These prices are based on two people sharing a twin/double room.\n\nThere is an extra charge for single accommodation.\n\nPlease note that we can arrange group tours for up to 45 people."
+  "price_note": "These prices are based on two people sharing a twin/double room.\n\nThere is an extra charge for single accommodation.\n\nPlease note that we can arrange group tours for up to 45 people.",
+  "included": [
+    "Airport transfers on arrival and departure",
+    "Accommodation in hotels with breakfast",
+    "Private air-conditioned vehicle for the whole tour",
+    "Professional English-speaking guide",
+    "Entrance fees to the sites in the itinerary",
+    "Bottled water during transfers"
+  ],
+  "excluded": [
+    "International flights",
+    "Lunches and dinners",
+    "Travel insurance",
+    "Personal expenses",
+    "Tips for guide and driver"
+  ]
 }
