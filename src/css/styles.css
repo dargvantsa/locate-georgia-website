@@ -377,9 +377,9 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 
 /* ---------- B2B partner form ---------- */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.partner { display: grid; grid-template-columns: 3fr 2fr; background: var(--card); }
-.partner__img { min-height: 520px; position: relative; }
-.partner__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 75%; }
+.partner { display: grid; grid-template-columns: 1fr 1fr; background: var(--card); }
+.partner__img { min-height: 620px; position: relative; }
+.partner__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
 .partner__body { padding: clamp(40px, 5vw, 64px) clamp(24px, 5vw, 64px); display: grid; gap: 28px; align-content: center; max-width: 560px; }
 .partner__body h2 { font-size: clamp(24px, 2.4vw, 30px); line-height: 1.3; }
 .partner-form { display: grid; gap: 14px; }
@@ -401,7 +401,7 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .partner-form__status.is-error { border-color: #b3261e; }
 @media (max-width: 980px) {
   .partner { grid-template-columns: 1fr; }
-  .partner__img { min-height: 0; aspect-ratio: 16 / 9; }
+  .partner__img { min-height: 0; aspect-ratio: 4 / 3; }
   .partner__body { max-width: none; }
 }
 
