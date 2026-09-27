@@ -182,7 +182,7 @@ a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
 .finder .btn { padding: 14px 28px; margin-left: 12px; }
 
 /* ---------- Promise strip ---------- */
-.promises { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 16px 32px; padding-block: 34px 20px; font-size: 14px; color: var(--ink); }
+.promises { display: grid; grid-template-columns: repeat(3, 1fr); justify-items: center; gap: 16px 24px; padding: 34px 20px 20px; font-size: 14px; color: var(--ink); }
 .promises li { display: flex; align-items: center; gap: 14px; }
 .promises svg { width: 24px; height: 24px; color: var(--ink-2); }
 .promises { list-style: none; margin: 0; }
@@ -304,7 +304,7 @@ a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
   .tour-grid { grid-template-columns: 1fr; }
   .tour-grid .tour-card:last-child { grid-column: auto; }
   .tour-grid .tour-card:last-child .tour-card__img { aspect-ratio: 3 / 2; }
-  .promises { justify-content: flex-start; flex-direction: column; }
+  .promises { grid-template-columns: 1fr; justify-items: start; padding-inline: 8px; }
   .cta__note { border-left: 0; padding-left: 0; }
   .footer__tag { border-left: 0; padding-left: 0; }
 }
