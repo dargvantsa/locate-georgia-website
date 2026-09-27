@@ -135,14 +135,40 @@
       ff.querySelectorAll('input[value="' + v + '"]').forEach(function (i) { i.checked = true; });
     });
     var picked = function (name) { return Array.prototype.map.call(ff.querySelectorAll('input[name="' + name + '"]:checked'), function (i) { return i.value; }); };
+    var PER_PAGE = 6, page = 1, matches = [];
+    var pager = document.getElementById('toursPager');
+    var showPage = function (p, scroll) {
+      var pages = Math.max(1, Math.ceil(matches.length / PER_PAGE));
+      page = Math.min(Math.max(1, p), pages);
+      cards.forEach(function (c) { c.hidden = true; });
+      matches.slice((page - 1) * PER_PAGE, page * PER_PAGE).forEach(function (c) { c.hidden = false; });
+      pager.hidden = pages < 2;
+      pager.innerHTML = '';
+      if (pages > 1) {
+        var mk = function (label, target, opts) {
+          var b = document.createElement('button'); b.type = 'button'; b.innerHTML = label;
+          if (opts && opts.aria) b.setAttribute('aria-label', opts.aria);
+          if (target === page && !(opts && opts.nav)) b.setAttribute('aria-current', 'page');
+          if (opts && opts.disabled) b.disabled = true;
+          b.addEventListener('click', function () { if (target !== page) showPage(target, true); });
+          pager.appendChild(b);
+        };
+        mk('<svg class="arrow" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>', page - 1, { nav: true, aria: 'Previous page', disabled: page === 1 });
+        for (var i = 1; i <= pages; i++) mk(String(i), i, { aria: 'Page ' + i });
+        mk('<svg class="arrow"><use href="#i-arrow"/></svg>', page + 1, { nav: true, aria: 'Next page', disabled: page === pages });
+      }
+      if (scroll) document.querySelector('.tours-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
     var apply = function () {
       var du = picked('duration'), ca = picked('category'), n = 0;
+      matches = [];
       cards.forEach(function (c) {
         var cats = (c.dataset.categories || '').split(' ');
         var ok = (!du.length || du.indexOf(c.dataset.duration) > -1) &&
                  (!ca.length || ca.every(function (x) { return cats.indexOf(x) > -1; }));
-        c.hidden = !ok; if (ok) n++;
+        if (ok) { matches.push(c); n++; }
       });
+      showPage(1, false);
       countEl.textContent = n + (n === 1 ? ' tour' : ' tours');
       emptyEl.hidden = n > 0;
       var total = du.length + ca.length;

@@ -39,6 +39,7 @@ permalink: /tours/
       <div class="tour-grid tour-grid--list" id="tourGrid">
         {% for tour in collections.tours %}{% include "partials/tour-card.njk" %}{% endfor %}
       </div>
+      <nav class="pager" id="toursPager" aria-label="Tour pages" hidden></nav>
       <div class="tours-list__empty" id="toursEmpty" hidden>
         <h2>No tour matches all of that yet.</h2>
         <p>We build journeys around you, so tell us what you have in mind and we will plan it.</p>
