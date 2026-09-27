@@ -501,7 +501,10 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 /* ---------- Tour map ---------- */
 .gmap { margin: 0; background: var(--card); padding: clamp(16px, 2.5vw, 28px); display: grid; gap: 18px; box-shadow: 0 1px 0 var(--line); }
 .gmap svg { width: 100%; height: auto; display: block; overflow: visible; }
-.gmap__land { fill: var(--paper-2); stroke: var(--terracotta-soft); stroke-width: 2; stroke-linejoin: round; }
+.gmap__region { fill: var(--paper-2); stroke: var(--white); stroke-width: 1.5; stroke-linejoin: round; }
+.gmap__region.is-visited { fill: #f1d9c9; }
+.gmap__land { fill: none; stroke: var(--terracotta-soft); stroke-width: 2.5; stroke-linejoin: round; }
+.gmap__labels text { font: 500 13px var(--sans); letter-spacing: .08em; text-transform: uppercase; fill: var(--ink-3); }
 .gmap__pin path { fill: var(--terracotta); stroke: var(--white); stroke-width: 2; }
 .gmap__pin text { fill: var(--white); font: 600 17px var(--sans); }
 .gmap__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; }

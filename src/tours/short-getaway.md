@@ -15,5 +15,11 @@ categories:
   - cultural
   - wine
   - gastro
+places:
+  - tbilisi
+  - mtskheta
+  - ananuri
+  - kazbegi
+  - signagi
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

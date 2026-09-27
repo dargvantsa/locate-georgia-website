@@ -15,5 +15,12 @@ categories:
   - romantic
   - gastro
   - wine
+places:
+  - tbilisi
+  - mtskheta
+  - kutaisi
+  - batumi
+  - telavi
+  - signagi
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

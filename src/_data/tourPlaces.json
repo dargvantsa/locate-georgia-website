@@ -3,210 +3,245 @@
   "value": "tbilisi",
   "label": "Tbilisi",
   "lat": 41.7151,
-  "lng": 44.8271
+  "lng": 44.8271,
+  "region": "tbilisi"
  },
  {
   "value": "mtskheta",
   "label": "Mtskheta",
   "lat": 41.8456,
-  "lng": 44.7206
+  "lng": 44.7206,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "jvari",
   "label": "Jvari Monastery",
   "lat": 41.8383,
-  "lng": 44.7336
+  "lng": 44.7336,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "ananuri",
   "label": "Ananuri",
   "lat": 42.164,
-  "lng": 44.703
+  "lng": 44.703,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "gudauri",
   "label": "Gudauri",
   "lat": 42.4776,
-  "lng": 44.4796
+  "lng": 44.4796,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "kazbegi",
   "label": "Kazbegi (Stepantsminda)",
   "lat": 42.657,
-  "lng": 44.643
+  "lng": 44.643,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "gergeti",
   "label": "Gergeti Trinity Church",
   "lat": 42.6624,
-  "lng": 44.6203
+  "lng": 44.6203,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "gori",
   "label": "Gori",
   "lat": 41.9842,
-  "lng": 44.1158
+  "lng": 44.1158,
+  "region": "shida-kartli"
  },
  {
   "value": "uplistsikhe",
   "label": "Uplistsikhe",
   "lat": 41.9674,
-  "lng": 44.2076
+  "lng": 44.2076,
+  "region": "shida-kartli"
  },
  {
   "value": "borjomi",
   "label": "Borjomi",
   "lat": 41.839,
-  "lng": 43.38
+  "lng": 43.38,
+  "region": "samtskhe"
  },
  {
   "value": "bakuriani",
   "label": "Bakuriani",
   "lat": 41.7497,
-  "lng": 43.5292
+  "lng": 43.5292,
+  "region": "samtskhe"
  },
  {
   "value": "akhaltsikhe",
   "label": "Akhaltsikhe (Rabati)",
   "lat": 41.639,
-  "lng": 42.9826
+  "lng": 42.9826,
+  "region": "samtskhe"
  },
  {
   "value": "vardzia",
   "label": "Vardzia",
   "lat": 41.3814,
-  "lng": 43.284
+  "lng": 43.284,
+  "region": "samtskhe"
  },
  {
   "value": "kutaisi",
   "label": "Kutaisi",
   "lat": 42.2679,
-  "lng": 42.6946
+  "lng": 42.6946,
+  "region": "imereti"
  },
  {
   "value": "gelati",
   "label": "Gelati Monastery",
   "lat": 42.2946,
-  "lng": 42.768
+  "lng": 42.768,
+  "region": "imereti"
  },
  {
   "value": "prometheus",
   "label": "Prometheus Cave",
   "lat": 42.3767,
-  "lng": 42.6005
+  "lng": 42.6005,
+  "region": "imereti"
  },
  {
   "value": "martvili",
   "label": "Martvili Canyon",
   "lat": 42.4575,
-  "lng": 42.3772
+  "lng": 42.3772,
+  "region": "samegrelo"
  },
  {
   "value": "okatse",
   "label": "Okatse Canyon",
   "lat": 42.4553,
-  "lng": 42.547
+  "lng": 42.547,
+  "region": "imereti"
  },
  {
   "value": "batumi",
   "label": "Batumi",
   "lat": 41.6168,
-  "lng": 41.6367
+  "lng": 41.6367,
+  "region": "adjara"
  },
  {
   "value": "mestia",
   "label": "Mestia",
   "lat": 43.0459,
-  "lng": 42.7277
+  "lng": 42.7277,
+  "region": "samegrelo"
  },
  {
   "value": "ushguli",
   "label": "Ushguli",
   "lat": 42.9166,
-  "lng": 43.015
+  "lng": 43.015,
+  "region": "samegrelo"
  },
  {
   "value": "signagi",
   "label": "Sighnaghi",
   "lat": 41.6186,
-  "lng": 45.9217
+  "lng": 45.9217,
+  "region": "kakheti"
  },
  {
   "value": "telavi",
   "label": "Telavi",
   "lat": 41.9198,
-  "lng": 45.4735
+  "lng": 45.4735,
+  "region": "kakheti"
  },
  {
   "value": "kvareli",
   "label": "Kvareli",
   "lat": 41.9477,
-  "lng": 45.812
+  "lng": 45.812,
+  "region": "kakheti"
  },
  {
   "value": "alaverdi",
   "label": "Alaverdi Monastery",
   "lat": 42.0325,
-  "lng": 45.3772
+  "lng": 45.3772,
+  "region": "kakheti"
  },
  {
   "value": "tsinandali",
   "label": "Tsinandali",
   "lat": 41.8934,
-  "lng": 45.5719
+  "lng": 45.5719,
+  "region": "kakheti"
  },
  {
   "value": "davidgareja",
   "label": "David Gareja",
   "lat": 41.447,
-  "lng": 45.3767
+  "lng": 45.3767,
+  "region": "kakheti"
  },
  {
   "value": "tusheti",
   "label": "Tusheti (Omalo)",
   "lat": 42.3717,
-  "lng": 45.6307
+  "lng": 45.6307,
+  "region": "kakheti"
  },
  {
   "value": "juta",
   "label": "Juta",
   "lat": 42.5794,
-  "lng": 44.7442
+  "lng": 44.7442,
+  "region": "mtskheta-mtianeti"
  },
  {
   "value": "zugdidi",
   "label": "Zugdidi",
   "lat": 42.5088,
-  "lng": 41.8709
+  "lng": 41.8709,
+  "region": "samegrelo"
  },
  {
   "value": "tskaltubo",
   "label": "Tskaltubo",
   "lat": 42.3317,
-  "lng": 42.6003
+  "lng": 42.6003,
+  "region": "imereti"
  },
  {
   "value": "sataplia",
   "label": "Sataplia",
   "lat": 42.3106,
-  "lng": 42.6739
+  "lng": 42.6739,
+  "region": "imereti"
  },
  {
   "value": "chiatura",
   "label": "Chiatura",
   "lat": 42.2903,
-  "lng": 43.2842
+  "lng": 43.2842,
+  "region": "imereti"
  },
  {
   "value": "kobuleti",
   "label": "Kobuleti",
   "lat": 41.8214,
-  "lng": 41.7792
+  "lng": 41.7792,
+  "region": "adjara"
  },
  {
   "value": "lagodekhi",
   "label": "Lagodekhi",
   "lat": 41.8268,
-  "lng": 46.2767
+  "lng": 46.2767,
+  "region": "kakheti"
  }
 ]

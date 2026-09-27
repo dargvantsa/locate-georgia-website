@@ -31,7 +31,12 @@ layout: layouts/base.njk
       <h2 id="map-title">Where we go</h2>
       <figure class="gmap">
         <svg viewBox="0 0 {{ georgiaMap.width }} {{ georgiaMap.height }}" role="img" aria-label="Map of Georgia showing: {% for p in pins %}{{ p.label }}{% if not loop.last %}, {% endif %}{% endfor %}">
+          {%- set visited = [] -%}{%- for p in pins -%}{% set visited = (visited.push(p.region), visited) %}{%- endfor -%}
+          {% for r in georgiaMap.regions %}<path class="gmap__region{% if r.key in visited %} is-visited{% endif %}" d="{{ r.path }}"/>{% endfor %}
           <path class="gmap__land" d="{{ georgiaMap.path }}"/>
+          <g class="gmap__labels" aria-hidden="true">
+          {% for r in georgiaMap.regions %}{% if r.key != "tbilisi" %}<text x="{{ r.x }}" y="{{ r.y - (r.label.length - 1) * 9 }}" text-anchor="middle">{% for line in r.label %}<tspan x="{{ r.x }}" dy="{{ 0 if loop.first else 18 }}">{{ line }}</tspan>{% endfor %}</text>{% endif %}{% endfor %}
+          </g>
           {% for p in pins %}
           {%- set x = p.lng | mapX(georgiaMap) -%}{%- set y = p.lat | mapY(georgiaMap) -%}
           <g class="gmap__pin" transform="translate({{ x }} {{ y }})">

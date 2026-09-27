@@ -14,5 +14,14 @@ categories:
   - group
   - wine
   - cultural
+places:
+  - tbilisi
+  - mtskheta
+  - uplistsikhe
+  - kutaisi
+  - kazbegi
+  - telavi
+  - kvareli
+  - signagi
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.
