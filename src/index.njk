@@ -73,7 +73,7 @@ permalink: /
 
 <div class="wrap">
   <ul class="promises">
-    {%- set icons = ["i-leaf", "i-people", "i-map"] -%}
+    {%- set icons = ["i-award", "i-globe", "i-support"] -%}
     {% for p in home.promises %}
     <li><svg><use href="#{{ icons[loop.index0 % 3] }}"/></svg>{{ p.text }}</li>
     {% endfor %}
