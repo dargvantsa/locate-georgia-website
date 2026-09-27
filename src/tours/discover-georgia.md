@@ -8,5 +8,13 @@ image_alt: Gergeti Trinity Church beneath snowy Kazbegi peaks
 featured: true
 order: 3
 published: true
+styles:
+  - private
+  - group
+  - family
+interests:
+  - culture
+  - nature
+  - wine
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

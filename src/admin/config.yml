@@ -44,10 +44,35 @@ collections:
       - { label: Price from (€ per person), name: price, widget: number, value_type: int, min: 0, required: false }
       - { label: Main photo, name: image, widget: image, hint: "Landscape photo, at least 1600px wide." }
       - { label: Photo description, name: image_alt, widget: string, required: false, hint: "What the photo shows, e.g. 'Gergeti Trinity Church under Mount Kazbek'. Helps Google and blind visitors." }
+      - label: Travel style
+        name: styles
+        widget: select
+        multiple: true
+        required: false
+        hint: "Used by the search box on the homepage and Tours page."
+        options: [{ label: Private journey, value: private }, { label: Small group, value: group }, { label: Family holiday, value: family }, { label: Romantic holiday, value: romantic }, { label: Winter tour, value: winter }]
+      - label: Themes
+        name: interests
+        widget: select
+        multiple: true
+        required: false
+        options: [{ label: History & culture, value: culture }, { label: Wine, value: wine }, { label: Food & gastronomy, value: food }, { label: Mountains & nature, value: nature }, { label: Medical & wellness, value: wellness }]
+      - { label: Highlights, name: highlights, widget: list, required: false, field: { label: Highlight, name: text, widget: string } }
+      - label: Itinerary (day by day)
+        name: itinerary
+        widget: list
+        required: false
+        summary: "Day {{fields.day}}: {{fields.title}}"
+        fields:
+          - { label: Day, name: day, widget: string, hint: "e.g. 1 or 3–4" }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: text, widget: text, required: false }
+      - { label: Included, name: included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
+      - { label: Not included, name: not_included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
       - { label: Show on homepage, name: featured, widget: boolean, default: false }
       - { label: Order, name: order, widget: number, value_type: int, default: 10, hint: "Lower numbers appear first." }
       - { label: Published, name: published, widget: boolean, default: true, hint: "Switch off to hide the tour without deleting it." }
-      - { label: Itinerary & details, name: body, widget: markdown }
+      - { label: Extra text, name: body, widget: markdown, required: false, hint: "Shown instead of the itinerary when no days are added." }
 
   # ---------------- Journal ----------------
   - name: journal
@@ -182,6 +207,15 @@ collections:
           - { label: Photo description, name: image_alt, widget: string, required: false }
           - { label: Button label, name: button_label, widget: string }
           - { label: Thank-you message, name: success_message, widget: text }
+
+      - name: tours_page
+        label: Tours page
+        file: src/_data/toursPage.json
+        fields:
+          - { label: Title line 1, name: title_line_1, widget: string }
+          - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
+          - { label: Top photo, name: image, widget: image }
+          - { label: Introduction, name: intro, widget: text, required: false }
 
       - name: services
         label: Travel services

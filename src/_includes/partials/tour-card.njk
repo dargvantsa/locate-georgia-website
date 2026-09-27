@@ -1,4 +1,8 @@
-<a class="tour-card" href="{{ tour.url }}">
+{%- set d = tour.data.duration or 0 -%}
+<a class="tour-card" href="{{ tour.url }}"
+   data-styles="{{ (tour.data.styles or []) | join(' ') }}"
+   data-interests="{{ (tour.data.interests or []) | join(' ') }}"
+   data-duration="{% if not d %}{% elif d <= 5 %}short{% elif d <= 9 %}week{% else %}long{% endif %}">
   <div class="tour-card__img"><img src="{{ tour.data.image }}" alt="{{ tour.data.image_alt }}" loading="lazy"></div>
   <div class="tour-card__body">
     <div>

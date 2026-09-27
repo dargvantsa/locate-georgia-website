@@ -26,49 +26,7 @@ permalink: /
 </section>
 
 <div class="wrap finder-wrap">
-  <form class="finder" id="finder" action="/tours/" method="get">
-    <div class="finder__field">
-      <svg class="finder__icon"><use href="#i-compass"/></svg>
-      <div class="finder__control">
-        <label for="f-style">Your travel style</label>
-        <select id="f-style" name="style">
-          <option value="">Any style</option>
-          <option value="private">Private journey</option>
-          <option value="group">Small group</option>
-          <option value="family">Family holiday</option>
-          <option value="romantic">Romantic holiday</option>
-          <option value="winter">Winter tour</option>
-        </select>
-      </div>
-    </div>
-    <div class="finder__field">
-      <svg class="finder__icon"><use href="#i-calendar"/></svg>
-      <div class="finder__control">
-        <label for="f-duration">How long?</label>
-        <select id="f-duration" name="duration">
-          <option value="">Any duration</option>
-          <option value="short">Up to 5 days</option>
-          <option value="week">6 – 9 days</option>
-          <option value="long">10 days or more</option>
-        </select>
-      </div>
-    </div>
-    <div class="finder__field">
-      <svg class="finder__icon"><use href="#i-mountain"/></svg>
-      <div class="finder__control">
-        <label for="f-interest">What moves you?</label>
-        <select id="f-interest" name="interest">
-          <option value="">Nature, culture, food…</option>
-          <option value="culture">History &amp; culture</option>
-          <option value="wine">Wine</option>
-          <option value="food">Food &amp; gastronomy</option>
-          <option value="nature">Mountains &amp; nature</option>
-          <option value="wellness">Medical &amp; wellness</option>
-        </select>
-      </div>
-    </div>
-    <button type="submit" class="btn btn--primary">Explore <svg class="arrow"><use href="#i-arrow"/></svg></button>
-  </form>
+  {% include "partials/finder.njk" %}
 </div>
 
 <div class="wrap">

@@ -1,16 +1,31 @@
 ---
 layout: layouts/base.njk
-title: Our tours
+title: Tours
 permalink: /tours/
 ---
-<section class="journeys wrap page-top" aria-labelledby="tours-title">
-  <div class="section-head">
-    <div>
-      <p class="eyebrow">Our tours</p>
-      <h1 id="tours-title" class="page-title">Journeys through Georgia</h1>
-    </div>
+{%- set t = toursPage -%}
+<section class="page-hero page-hero--short" style="--hero-img: url('{{ t.image }}')">
+  <div class="wrap">
+    <h1>{{ t.title_line_1 }}{% if t.title_line_2 %}<br><em>{{ t.title_line_2 }}</em>{% endif %}</h1>
   </div>
-  <div class="tour-grid">
+</section>
+
+<div class="wrap finder-wrap">
+  {% set finderButton = "Show tours" %}{% include "partials/finder.njk" %}
+</div>
+
+<section class="wrap tours-list" aria-labelledby="tours-count">
+  {% if t.intro %}<p class="tours-list__intro">{{ t.intro }}</p>{% endif %}
+  <div class="tours-list__bar">
+    <p id="tours-count" class="tours-list__count" aria-live="polite">{{ collections.tours.length }} tours</p>
+    <button type="button" class="tours-list__clear" id="toursClear" hidden>Clear filters</button>
+  </div>
+  <div class="tour-grid tour-grid--list" id="tourGrid">
     {% for tour in collections.tours %}{% include "partials/tour-card.njk" %}{% endfor %}
+  </div>
+  <div class="tours-list__empty" id="toursEmpty" hidden>
+    <h2>No tour matches all of that yet.</h2>
+    <p>We build journeys around you, so tell us what you have in mind and we will plan it.</p>
+    <a href="/contact/#plan" class="btn btn--primary">Plan my journey <svg class="arrow"><use href="#i-arrow"/></svg></a>
   </div>
 </section>

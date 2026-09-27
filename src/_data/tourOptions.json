@@ -1,0 +1,21 @@
+{
+  "styles": [
+    { "value": "private", "label": "Private journey" },
+    { "value": "group", "label": "Small group" },
+    { "value": "family", "label": "Family holiday" },
+    { "value": "romantic", "label": "Romantic holiday" },
+    { "value": "winter", "label": "Winter tour" }
+  ],
+  "durations": [
+    { "value": "short", "label": "Up to 5 days" },
+    { "value": "week", "label": "6 – 9 days" },
+    { "value": "long", "label": "10 days or more" }
+  ],
+  "interests": [
+    { "value": "culture", "label": "History & culture" },
+    { "value": "wine", "label": "Wine" },
+    { "value": "food", "label": "Food & gastronomy" },
+    { "value": "nature", "label": "Mountains & nature" },
+    { "value": "wellness", "label": "Medical & wellness" }
+  ]
+}

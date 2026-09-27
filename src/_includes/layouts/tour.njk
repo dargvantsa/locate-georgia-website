@@ -1,9 +1,10 @@
 ---
 layout: layouts/base.njk
 ---
+{%- macro optLabel(list, v) -%}{% for o in list %}{% if o.value == v %}{{ o.label }}{% endif %}{% endfor %}{%- endmacro -%}
 <section class="tour-hero" style="--hero-img: url('{{ image }}')">
   <div class="wrap">
-    <p class="eyebrow eyebrow--light"><a href="/tours/">Our tours</a></p>
+    <p class="eyebrow eyebrow--light"><a href="/tours/">Tours</a></p>
     <h1>{{ title }}</h1>
     <div class="tour-hero__meta">
       {% if duration %}<span><svg><use href="#i-calendar"/></svg>{{ duration }} days</span>{% endif %}
@@ -12,8 +13,63 @@ layout: layouts/base.njk
   </div>
 </section>
 
-<article class="wrap tour-body">
-  {% if summary %}<p class="tour-body__lede">{{ summary }}</p>{% endif %}
-  <div class="prose">{{ content | safe }}</div>
-  <a href="/contact/#plan" class="btn btn--primary">Ask about this tour <svg class="arrow"><use href="#i-arrow"/></svg></a>
-</article>
+<div class="wrap tour-layout">
+  <article class="tour-main">
+    {% if summary %}<p class="tour-main__lede">{{ summary }}</p>{% endif %}
+
+    {% if highlights and highlights.length %}
+    <section class="tour-block" aria-labelledby="hl">
+      <h2 id="hl">Highlights</h2>
+      <ul class="tick-list">{% for h in highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+    </section>
+    {% endif %}
+
+    <section class="tour-block" aria-labelledby="it">
+      <h2 id="it">Itinerary</h2>
+      {% if itinerary and itinerary.length %}
+      <ol class="itinerary">
+        {% for d in itinerary %}
+        <li class="itinerary__day">
+          <details{% if loop.first %} open{% endif %}>
+            <summary><span class="itinerary__num">Day {{ d.day or loop.index }}</span><span class="itinerary__title">{{ d.title }}</span></summary>
+            {% if d.text %}<div class="itinerary__text">{{ d.text | nl2br | safe }}</div>{% endif %}
+          </details>
+        </li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <div class="prose">{{ content | safe }}</div>
+      {% endif %}
+    </section>
+
+    {% if (included and included.length) or (not_included and not_included.length) %}
+    <section class="tour-block tour-incl" aria-label="What is included">
+      {% if included and included.length %}<div><h2>Included</h2><ul class="tick-list">{% for i in included %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if not_included and not_included.length %}<div><h2>Not included</h2><ul class="tick-list tick-list--no">{% for i in not_included %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endif %}
+    </section>
+    {% endif %}
+  </article>
+
+  <aside class="tour-side" aria-label="Book this tour">
+    <div class="tour-side__card">
+      {% if price %}<p class="tour-side__price"><span>from</span> {{ price | euro }} <span>per person</span></p>{% endif %}
+      <dl class="tour-facts">
+        {% if duration %}<div><dt>Duration</dt><dd>{{ duration }} days</dd></div>{% endif %}
+        {% if styles and styles.length %}<div><dt>Travel style</dt><dd>{% for s in styles %}{{ optLabel(tourOptions.styles, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
+        {% if interests and interests.length %}<div><dt>Themes</dt><dd>{% for s in interests %}{{ optLabel(tourOptions.interests, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
+      </dl>
+      <a href="/contact/#plan" class="btn btn--primary tour-side__btn">Ask about this tour <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      {% if site.whatsapp %}<a href="{{ site.whatsapp }}" target="_blank" rel="noopener" class="tour-side__wa"><svg><use href="#i-wa"/></svg>Chat on WhatsApp</a>{% endif %}
+      <p class="tour-side__note">Dates, hotels and pace can be adjusted to you.</p>
+    </div>
+  </aside>
+</div>
+
+{%- set others = [] -%}
+{%- for t in collections.tours -%}{% if t.url != page.url and others.length < 3 %}{% set others = (others.push(t), others) %}{% endif %}{%- endfor -%}
+{% if others.length %}
+<section class="wrap tour-more" aria-labelledby="more-title">
+  <h2 id="more-title">You may also like</h2>
+  <div class="tour-grid">{% for tour in others %}{% include "partials/tour-card.njk" %}{% endfor %}</div>
+</section>
+{% endif %}

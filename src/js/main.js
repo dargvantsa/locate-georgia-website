@@ -121,6 +121,35 @@
     });
   }
 
+  // Tours page: filter cards by the search box (also reads ?style=&duration=&interest= from the homepage)
+  var grid = document.getElementById('tourGrid');
+  var finder = document.getElementById('finder');
+  if (grid && finder) {
+    var cards = grid.querySelectorAll('.tour-card');
+    var countEl = document.getElementById('tours-count');
+    var emptyEl = document.getElementById('toursEmpty');
+    var clearEl = document.getElementById('toursClear');
+    var sel = { style: finder.querySelector('[name="style"]'), duration: finder.querySelector('[name="duration"]'), interest: finder.querySelector('[name="interest"]') };
+    var params = new URLSearchParams(location.search);
+    Object.keys(sel).forEach(function (k) { if (params.get(k)) sel[k].value = params.get(k); });
+    var apply = function () {
+      var st = sel.style.value, du = sel.duration.value, it = sel.interest.value, n = 0;
+      cards.forEach(function (c) {
+        var ok = (!st || (' ' + c.dataset.styles + ' ').indexOf(' ' + st + ' ') > -1) &&
+                 (!du || c.dataset.duration === du) &&
+                 (!it || (' ' + c.dataset.interests + ' ').indexOf(' ' + it + ' ') > -1);
+        c.hidden = !ok; if (ok) n++;
+      });
+      countEl.textContent = n + (n === 1 ? ' tour' : ' tours');
+      emptyEl.hidden = n > 0;
+      clearEl.hidden = !(st || du || it);
+    };
+    finder.addEventListener('submit', function (e) { e.preventDefault(); apply(); });
+    Object.keys(sel).forEach(function (k) { sel[k].addEventListener('change', apply); });
+    clearEl.addEventListener('click', function () { finder.reset(); apply(); });
+    apply();
+  }
+
   // Current year in footer
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
