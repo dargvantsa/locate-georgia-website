@@ -173,6 +173,16 @@ collections:
               - { label: Email, name: email, widget: string, required: false }
               - { label: Photo, name: photo, widget: image, required: false }
 
+      - name: partner
+        label: B2B partnership form
+        file: src/_data/partner.json
+        fields:
+          - { label: Heading, name: title, widget: text }
+          - { label: Photo, name: image, widget: image }
+          - { label: Photo description, name: image_alt, widget: string, required: false }
+          - { label: Button label, name: button_label, widget: string }
+          - { label: Thank-you message, name: success_message, widget: text }
+
       - name: services
         label: Travel services
         file: src/_data/services.json

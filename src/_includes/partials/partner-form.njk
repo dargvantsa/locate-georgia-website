@@ -1,0 +1,43 @@
+<section class="partner" id="partner" aria-labelledby="partner-title">
+  <div class="partner__img"><img src="{{ partner.image }}" alt="{{ partner.image_alt }}" loading="lazy"></div>
+  <div class="partner__body">
+    <h2 id="partner-title">{{ partner.title }}</h2>
+    <form class="partner-form" name="b2b-partnership" method="POST" action="/about/?sent=1#partner" data-netlify="true" data-success="{{ partner.success_message }}" netlify-honeypot="company_website">
+      <input type="hidden" name="form-name" value="b2b-partnership">
+      <p class="partner-form__hp" hidden><label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+      <label class="field"><span class="sr-only">Name and surname</span>
+        <input id="pf-name" name="name" type="text" placeholder="Name and surname" autocomplete="name" required></label>
+      <label class="field"><span class="sr-only">Email</span>
+        <input id="pf-email" name="email" type="email" placeholder="Email" autocomplete="email" required></label>
+      <label class="field"><span class="sr-only">Company</span>
+        <input id="pf-company" name="company" type="text" placeholder="Company" autocomplete="organization"></label>
+      <div class="field-row">
+        <label class="field field--code"><span class="sr-only">Country code</span>
+          <select id="pf-code" name="country_code">
+            <option value="+995" selected>GE +995</option>
+            <option value="+49">DE +49</option>
+            <option value="+43">AT +43</option>
+            <option value="+41">CH +41</option>
+            <option value="+971">AE +971</option>
+            <option value="+966">SA +966</option>
+            <option value="+974">QA +974</option>
+            <option value="+965">KW +965</option>
+            <option value="+34">ES +34</option>
+            <option value="+44">UK +44</option>
+            <option value="+33">FR +33</option>
+            <option value="+39">IT +39</option>
+            <option value="+31">NL +31</option>
+            <option value="+48">PL +48</option>
+            <option value="+972">IL +972</option>
+            <option value="+90">TR +90</option>
+            <option value="+1">US +1</option>
+            <option value="">Other</option>
+          </select></label>
+        <label class="field field--phone"><span class="sr-only">Phone</span>
+          <input id="pf-phone" name="phone" type="tel" placeholder="Phone" autocomplete="tel-national"></label>
+      </div>
+      <button type="submit" class="btn btn--primary partner-form__btn">{{ partner.button_label }}</button>
+      <p class="partner-form__status" role="status" hidden></p>
+    </form>
+  </div>
+</section>

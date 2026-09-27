@@ -99,6 +99,28 @@
     build();
   });
 
+  // B2B partner form: sends to Netlify Forms without leaving the page
+  var pform = document.querySelector('.partner-form');
+  if (pform) {
+    var status = pform.querySelector('.partner-form__status');
+    var btn = pform.querySelector('button[type="submit"]');
+    var say = function (msg, err) { status.textContent = msg; status.hidden = false; status.classList.toggle('is-error', !!err); };
+    if (/[?&]sent=1/.test(location.search)) say(pform.getAttribute('data-success') || 'Thank you! We will be in touch shortly.');
+    pform.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      var body = new URLSearchParams(new FormData(pform)).toString();
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          pform.reset();
+          say(pform.getAttribute('data-success'));
+        })
+        .catch(function () { say('Sorry, the form could not be sent. Please email us at info@locategeorgia.ge.', true); })
+        .then(function () { btn.disabled = false; });
+    });
+  }
+
   // Current year in footer
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
