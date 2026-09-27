@@ -112,7 +112,8 @@ layout: layouts/base.njk
           </tbody>
         </table>
       </div>
-      {% if price_note %}<p class="price-note">{{ price_note }}</p>{% endif %}
+      {%- set pnote = price_note or toursPage.price_note -%}
+      {% if pnote %}<div class="price-note">{% for para in pnote.split("\n\n") %}<p>{{ para }}</p>{% endfor %}</div>{% endif %}
     </section>
     {% endif %}
 

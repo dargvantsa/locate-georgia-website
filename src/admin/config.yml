@@ -51,7 +51,7 @@ collections:
         fields:
           - { label: Group size, name: group, widget: string, hint: "e.g. Solo, 2 – 3 people" }
           - { label: Price per adult, name: price, widget: number, value_type: int, min: 0 }
-      - { label: Note under the price table, name: price_note, widget: string, required: false, hint: "e.g. Prices per person in a double room. Single supplement on request." }
+      - { label: Note under the price table, name: price_note, widget: text, required: false, hint: "Leave empty to use the standard note from Pages → Tours page." }
       - { label: Price from (only if there is no price table), name: price, widget: number, value_type: int, min: 0, required: false }
       - { label: Main photo, name: image, widget: image, hint: "Landscape photo, at least 1600px wide." }
       - { label: Photo description, name: image_alt, widget: string, required: false, hint: "What the photo shows, e.g. 'Gergeti Trinity Church under Mount Kazbek'. Helps Google and blind visitors." }
@@ -238,6 +238,7 @@ collections:
           - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
           - { label: Top photo, name: image, widget: image }
           - { label: Heading above the tours, name: intro, widget: string, required: false }
+          - { label: Standard note under price tables, name: price_note, widget: text, required: false, hint: "Shown under every tour's price table. Leave an empty line between paragraphs." }
 
       - name: services
         label: Travel services
