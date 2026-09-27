@@ -584,6 +584,29 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 @media (max-width: 980px) { .mice-grid { grid-template-columns: 1fr 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .mice-grid, .steps { grid-template-columns: 1fr; } }
 
+
+/* ---------- Services page ---------- */
+.svc { padding-block: clamp(48px, 7vw, 88px); }
+.svc__intro { max-width: 62ch; margin: calc(-1 * clamp(12px, 2vw, 24px)) auto clamp(36px, 5vw, 56px); text-align: center; color: var(--ink-2); font-size: 17px; }
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.svc-item { background: var(--card); box-shadow: 0 1px 0 var(--line); padding: 34px 28px 32px; display: grid; justify-items: center; text-align: center; gap: 12px; transition: transform .3s, box-shadow .3s; }
+.svc-item:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.svc-item__icon { width: 76px; height: 76px; border-radius: 50%; background: var(--paper-2); color: var(--terracotta); display: grid; place-items: center; margin-bottom: 6px; }
+.svc-item__icon svg { width: 40px; height: 40px; }
+.svc-item h3 { font-size: 24px; }
+.svc-item p { color: var(--ink-2); font-size: 15px; max-width: 32ch; }
+.svc-special { background: var(--paper-2); padding-block: clamp(56px, 8vw, 96px); }
+.sp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.sp-card { position: relative; min-height: 380px; display: flex; align-items: flex-end; color: var(--white); background: #3b3025 var(--sp-img, none) center / cover no-repeat; overflow: hidden; }
+.sp-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(28,20,14,.78), rgba(28,20,14,.05) 65%); transition: background .3s; }
+.sp-card:hover::before { background: linear-gradient(0deg, rgba(28,20,14,.85), rgba(28,20,14,.2) 70%); }
+.sp-card__body { position: relative; padding: clamp(24px, 3vw, 36px); display: grid; gap: 10px; justify-items: start; }
+.sp-card h3 { font-size: clamp(26px, 2.6vw, 32px); }
+.sp-card p { color: rgba(255,255,255,.9); max-width: 40ch; }
+.sp-card .btn { margin-top: 8px; }
+@media (max-width: 980px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .svc-grid, .sp-grid { grid-template-columns: 1fr; } .sp-card { min-height: 320px; } }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .nav, .header .btn { display: none; }

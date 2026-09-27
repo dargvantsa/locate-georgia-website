@@ -275,25 +275,32 @@ collections:
           - { label: Standard note under price tables, name: price_note, widget: text, required: false, hint: "Shown under every tour's price table. Leave an empty line between paragraphs." }
 
       - name: services
-        label: Travel services
+        label: Services
         file: src/_data/services.json
         fields:
-          - label: Main services
+          - { label: Page title, name: title, widget: string }
+          - { label: Top photo, name: hero_image, widget: image }
+          - { label: Services heading, name: core_title, widget: string }
+          - { label: Introduction, name: intro, widget: text, required: false }
+          - label: Services
             name: core
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { label: Service, name: title, widget: string }
-              - { label: Description, name: text, widget: text }
-              - { label: Photo, name: image, widget: image, required: false }
+              - { label: Icon, name: icon, widget: select, options: [{ label: Car, value: transfer }, { label: Hotel, value: hotel }, { label: Mountains, value: tour }, { label: Passport, value: visa }, { label: Shield, value: insurance }, { label: Plane, value: flight }] }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Special services heading, name: special_title, widget: string }
           - label: Special services
             name: special
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { label: Service, name: title, widget: string }
-              - { label: Description, name: text, widget: text }
-              - { label: Photo, name: image, widget: image, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Photo, name: image, widget: image }
+              - { label: Button text, name: button, widget: string, default: "Book now" }
+              - { label: Button link, name: link, widget: string, required: false, hint: "Leave empty to open WhatsApp. For the MICE page use /mice/" }
 
   # ---------------- Settings ----------------
   - name: settings

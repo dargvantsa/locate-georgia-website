@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+title: Services
+permalink: /services/
+---
+{%- set sv = services -%}
+<section class="page-hero page-hero--short" style="--hero-img: url('{{ sv.hero_image }}')">
+  <div class="wrap"><h1>{{ sv.title }}</h1></div>
+</section>
+
+<section class="wrap svc" aria-labelledby="svc-title">
+  <h2 id="svc-title" class="section-title">{{ sv.core_title }}</h2>
+  {% if sv.intro %}<p class="svc__intro">{{ sv.intro }}</p>{% endif %}
+  <div class="svc-grid">
+    {% for s in sv.core %}
+    <article class="svc-item">
+      <span class="svc-item__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><use href="#s-{{ s.icon or 'tour' }}"/></svg></span>
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.text }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="svc-special" aria-labelledby="sp-title">
+  <div class="wrap">
+    <h2 id="sp-title" class="section-title">{{ sv.special_title }}</h2>
+    <div class="sp-grid">
+      {% for s in sv.special %}
+      {%- set href = s.link or site.whatsapp -%}
+      <article class="sp-card" style="--sp-img: url('{{ s.image }}')">
+        <div class="sp-card__body">
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.text }}</p>
+          <a class="btn btn--light" href="{{ href }}"{% if not s.link %} target="_blank" rel="noopener"{% endif %}>{{ s.button or "Book now" }} <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

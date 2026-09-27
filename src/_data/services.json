@@ -1,16 +1,69 @@
 {
+  "title": "Our services",
+  "hero_image": "/img/uploads/hero-ushguli.jpg",
+  "intro": "Everything you need for a trip to Georgia in one place: carefully crafted itineraries, hand-picked hotels, transfers, visas and 24/7 support during your stay.",
+  "core_title": "Our services",
   "core": [
-    { "title": "Transfers", "text": "Efficient, reliable and comfortable transfers, so every part of your journey runs smoothly.", "image": "" },
-    { "title": "Hotels", "text": "Hand-picked stays offering comfort, style and good value across Georgia.", "image": "" },
-    { "title": "Tours", "text": "Georgia's hidden gems, culture and nature with expert local guides.", "image": "" },
-    { "title": "Visa support", "text": "Help with your visa application, so getting here is simple.", "image": "" },
-    { "title": "Travel insurance", "text": "Reliable cover for peace of mind throughout your trip.", "image": "" },
-    { "title": "Flight tickets", "text": "Flights to and from Georgia at good fares.", "image": "" }
+    {
+      "icon": "transfer",
+      "title": "Transfers",
+      "text": "Efficient, reliable and convenient transfers to make your journey seamless from arrival to departure."
+    },
+    {
+      "icon": "hotel",
+      "title": "Hotels",
+      "text": "Curated accommodation offering comfort, style and good value across Georgia."
+    },
+    {
+      "icon": "tour",
+      "title": "Tours",
+      "text": "Georgia's hidden gems, culture and natural beauty with our expert local guides."
+    },
+    {
+      "icon": "visa",
+      "title": "Visa support",
+      "text": "Comprehensive help with your visa application, for a hassle-free journey."
+    },
+    {
+      "icon": "insurance",
+      "title": "Insurance",
+      "text": "Reliable travel insurance for peace of mind throughout your trip."
+    },
+    {
+      "icon": "flight",
+      "title": "Flight tickets",
+      "text": "Affordable flight tickets to and from Georgia."
+    }
   ],
+  "special_title": "Special services",
   "special": [
-    { "title": "MICE", "text": "Meetings, incentives, conferences and exhibitions, planned end to end.", "image": "" },
-    { "title": "Events & weddings", "text": "Gatherings and celebrations planned around your needs.", "image": "" },
-    { "title": "Helicopter rides", "text": "See the Caucasus from above on a private helicopter flight.", "image": "" },
-    { "title": "Yacht rides", "text": "Private yacht trips on the Black Sea coast.", "image": "" }
+    {
+      "title": "MICE Tourism",
+      "text": "Elevate your event with exceptional MICE services.",
+      "image": "/img/uploads/mice-cover.jpg",
+      "link": "/mice/",
+      "button": "Learn more"
+    },
+    {
+      "title": "Event management",
+      "text": "Transform your events with expert planning tailored to your needs.",
+      "image": "/img/uploads/tours-cover-tbilisi.jpg",
+      "link": "",
+      "button": "Book now"
+    },
+    {
+      "title": "Helicopter rides",
+      "text": "Experience luxury and adventure with an exclusive helicopter flight over the Caucasus.",
+      "image": "/img/uploads/about-gergeti.jpg",
+      "link": "",
+      "button": "Book now"
+    },
+    {
+      "title": "Yacht rides",
+      "text": "Enjoy a private yacht trip along the Black Sea coast.",
+      "image": "/img/uploads/b2b-batumi.jpg",
+      "link": "",
+      "button": "Book now"
+    }
   ]
 }
