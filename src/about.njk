@@ -12,7 +12,10 @@ permalink: /about/
 </section>
 
 <section class="about-intro wrap">
-  <p class="about-intro__lede">{{ a.intro }}</p>
+  <div class="about-intro__text">
+    {% if a.intro_title %}<p class="eyebrow">{{ a.intro_title }}</p>{% endif %}
+    <p class="about-intro__lede">{{ a.intro }}</p>
+  </div>
   <ul class="stats">
     {% for h in a.highlights %}
     <li><span class="stats__num">{{ h.number }}</span><span class="stats__label">{{ h.label }}</span></li>
