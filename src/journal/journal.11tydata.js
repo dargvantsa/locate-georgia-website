@@ -1,6 +1,6 @@
 export default {
   layout: "layouts/post.njk",
   eleventyComputed: {
-    permalink: (data) => (data.published === false ? false : `/journal/${data.page.fileSlug}/`),
+    permalink: (data) => (data.published === false ? false : `/blog/${data.page.fileSlug}/`),
   },
 };

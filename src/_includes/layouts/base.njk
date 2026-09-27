@@ -29,11 +29,12 @@
       <img src="/img/logo-terracotta.png" alt="Locate Georgia, since 2017" width="934" height="410">
     </a>
     <nav class="nav" id="nav" aria-label="Main">
-      <a href="/tours/"{% if page.url.startsWith("/tours") %} aria-current="page"{% endif %}>Our tours</a>
-      <a href="/services/">Travel services</a>
       <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About us</a>
-      <a href="/journal/">Journal</a>
-      <a href="/contact/">Contact</a>
+      <a href="/tours/"{% if page.url.startsWith("/tours") %} aria-current="page"{% endif %}>Tours</a>
+      <a href="/mice/"{% if page.url == "/mice/" %} aria-current="page"{% endif %}>MICE &amp; Events</a>
+      <a href="/services/"{% if page.url == "/services/" %} aria-current="page"{% endif %}>Services</a>
+      <a href="/blog/"{% if page.url.startsWith("/blog") %} aria-current="page"{% endif %}>Blog</a>
+      <a href="/contact/"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact us</a>
       <a href="/contact/#plan" class="btn btn--primary nav__cta">Plan my journey <svg class="arrow"><use href="#i-arrow"/></svg></a>
     </nav>
     <a href="/contact/#plan" class="btn btn--primary">Plan my journey <svg class="arrow"><use href="#i-arrow"/></svg></a>
@@ -60,11 +61,12 @@
         <img src="/img/logo-terracotta.png" alt="Locate Georgia, since 2017" width="934" height="410">
       </a>
       <nav class="footer__nav" aria-label="Footer">
-        <a href="/tours/">Our tours</a>
-        <a href="/services/">Travel services</a>
         <a href="/about/">About us</a>
-        <a href="/journal/">Journal</a>
-        <a href="/contact/">Contact</a>
+        <a href="/tours/">Tours</a>
+        <a href="/mice/">MICE &amp; Events</a>
+        <a href="/services/">Services</a>
+        <a href="/blog/">Blog</a>
+        <a href="/contact/">Contact us</a>
       </nav>
       <div class="footer__social">
         {% set withYoutube = true %}{% include "partials/social.njk" %}

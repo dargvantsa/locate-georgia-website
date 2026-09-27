@@ -51,8 +51,8 @@ collections:
 
   # ---------------- Journal ----------------
   - name: journal
-    label: Journal
-    label_singular: Journal post
+    label: Blog
+    label_singular: Blog post
     folder: src/journal
     extension: md
     format: frontmatter
