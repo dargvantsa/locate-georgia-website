@@ -206,7 +206,7 @@ collections:
         label: Tours page
         file: src/_data/toursPage.json
         fields:
-          - { label: Title line 1, name: title_line_1, widget: string }
+          - { label: Title line 1, name: title_line_1, widget: string, required: false, hint: "Leave empty to show the photo without text." }
           - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
           - { label: Top photo, name: image, widget: image }
           - { label: Heading above the tours, name: intro, widget: string, required: false }

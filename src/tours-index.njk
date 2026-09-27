@@ -4,9 +4,10 @@ title: Tours
 permalink: /tours/
 ---
 {%- set t = toursPage -%}
-<section class="page-hero page-hero--short" style="--hero-img: url('{{ t.image }}')">
+<section class="page-hero page-hero--short{% if not t.title_line_1 %} page-hero--photo{% endif %}" style="--hero-img: url('{{ t.image }}')">
   <div class="wrap">
-    <h1>{{ t.title_line_1 }}{% if t.title_line_2 %}<br><em>{{ t.title_line_2 }}</em>{% endif %}</h1>
+    {% if t.title_line_1 %}<h1>{{ t.title_line_1 }}{% if t.title_line_2 %}<br><em>{{ t.title_line_2 }}</em>{% endif %}</h1>
+    {% else %}<h1 class="sr-only">Tours</h1>{% endif %}
   </div>
 </section>
 
