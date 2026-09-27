@@ -142,8 +142,8 @@ layout: layouts/base.njk
         {% if duration %}<div><dt>Duration</dt><dd>{{ duration }} days</dd></div>{% endif %}
         {% if categories and categories.length %}<div><dt>Category</dt><dd>{% for s in categories %}{{ optLabel(tourOptions.categories, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
       </dl>
-      <a href="/contact/#plan" class="btn btn--primary tour-side__btn">Ask about this tour <svg class="arrow"><use href="#i-arrow"/></svg></a>
-      {% if site.whatsapp %}<a href="{{ site.whatsapp }}" target="_blank" rel="noopener" class="tour-side__wa"><svg><use href="#i-wa"/></svg>Chat on WhatsApp</a>{% endif %}
+      <a href="{{ site.whatsapp or '/contact/#plan' }}"{% if site.whatsapp %} target="_blank" rel="noopener"{% endif %} class="btn btn--primary tour-side__btn"><svg class="tour-side__btn-wa"><use href="#i-wa"/></svg>Ask about this tour <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      <a href="mailto:{{ site.email }}?subject={{ ('Question about ' + title) | urlencode }}" class="tour-side__wa"><svg><use href="#i-mail"/></svg>or email {{ site.email }}</a>
       <p class="tour-side__note">Dates, hotels and pace can be adjusted to you.</p>
     </div>
   </aside>

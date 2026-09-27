@@ -495,8 +495,9 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .tour-facts dt { color: var(--ink-3); }
 .tour-facts dd { margin: 0; color: var(--ink); }
 .tour-side__btn { justify-content: center; }
+.tour-side__btn-wa { width: 18px; height: 18px; flex: none; }
 .tour-side__wa { display: inline-flex; justify-content: center; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); }
-.tour-side__wa svg { width: 18px; height: 18px; color: #25a244; }
+.tour-side__wa svg { width: 16px; height: 16px; color: var(--ink-3); }
 .tour-side__wa:hover { color: var(--terracotta); }
 .tour-side__note { font-size: 13px; color: var(--ink-3); text-align: center; }
 .tour-more { padding-block: 0 clamp(56px, 7vw, 88px); }
