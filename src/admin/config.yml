@@ -35,13 +35,24 @@ collections:
     format: frontmatter
     create: true
     slug: "{{slug}}"
-    summary: "{{title}}  ·  from €{{price}}"
+    summary: "{{title}}"
     sortable_fields: [order, title, price]
     fields:
       - { label: Tour name, name: title, widget: string }
       - { label: Short description, name: summary, widget: text, hint: "One or two sentences. Shown at the top of the tour page and in Google results." }
       - { label: Duration (days), name: duration, widget: number, value_type: int, min: 1, required: false, hint: "The Tours page filter has 4, 5, 7, 10 and 14 days." }
-      - { label: Price from (€ per person), name: price, widget: number, value_type: int, min: 0, required: false }
+      - { label: Currency, name: currency, widget: select, options: ["€", "$"], default: "€" }
+      - label: Price table
+        name: prices
+        widget: list
+        required: false
+        summary: "{{fields.group}}: {{fields.price}}"
+        hint: "One row per group size. The lowest price here is shown as 'from …' everywhere on the site."
+        fields:
+          - { label: Group size, name: group, widget: string, hint: "e.g. Solo, 2 – 3 people" }
+          - { label: Price per adult, name: price, widget: number, value_type: int, min: 0 }
+      - { label: Note under the price table, name: price_note, widget: string, required: false, hint: "e.g. Prices per person in a double room. Single supplement on request." }
+      - { label: Price from (only if there is no price table), name: price, widget: number, value_type: int, min: 0, required: false }
       - { label: Main photo, name: image, widget: image, hint: "Landscape photo, at least 1600px wide." }
       - { label: Photo description, name: image_alt, widget: string, required: false, hint: "What the photo shows, e.g. 'Gergeti Trinity Church under Mount Kazbek'. Helps Google and blind visitors." }
       - label: Category

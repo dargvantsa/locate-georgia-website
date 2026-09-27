@@ -7,7 +7,7 @@
       <h3>{{ tour.data.title }}</h3>
       <div class="tour-card__meta">
         {% if tour.data.duration %}<span><svg><use href="#i-calendar"/></svg>{{ tour.data.duration }} days</span>{% endif %}
-        {% if tour.data.price %}<span class="tour-card__price">from {{ tour.data.price | euro }}</span>{% endif %}
+        {% set fp = tour.data | fromPrice %}{% if fp %}<span class="tour-card__price">from {{ fp | money(tour.data.currency) }}</span>{% endif %}
       </div>
     </div>
     <svg class="arrow"><use href="#i-arrow"/></svg>

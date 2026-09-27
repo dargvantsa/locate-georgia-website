@@ -44,6 +44,16 @@ export default function (eleventyConfig) {
   // Georgia map: lat/lng -> x/y in the outline's coordinate space
   eleventyConfig.addFilter("mapX", (lng, m) => (m.pad + (lng - m.lon0) * m.k * m.scale).toFixed(1));
   eleventyConfig.addFilter("mapY", (lat, m) => (m.pad + (m.lat1 - lat) * m.scale).toFixed(1));
+  // Lowest price for a tour: the cheapest row of its price table, or the single "price" field
+  const fromPrice = (d) => {
+    const rows = (d.prices || []).map((r) => Number(r.price)).filter((n) => n > 0);
+    return rows.length ? Math.min(...rows) : d.price || null;
+  };
+  eleventyConfig.addFilter("fromPrice", fromPrice);
+  // 2300 + "$" -> $2,300
+  eleventyConfig.addFilter("money", (n, cur) =>
+    n == null || n === "" ? "" : (cur || "€") + Number(n).toLocaleString("en-US")
+  );
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("digits", (s) => String(s || "").replace(/[^\d+]/g, ""));
 

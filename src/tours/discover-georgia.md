@@ -73,5 +73,23 @@ gallery:
     alt: "Mtskheta, the ancient capital"
   - image: /img/uploads/tour-discover.jpg
     alt: "The Caucasus mountains"
+currency: "$"
+prices:
+  - group: "Solo"
+    price: 2509
+  - group: "2 – 3 people"
+    price: 1541
+  - group: "4 – 5 people"
+    price: 1405
+  - group: "6 – 7 people"
+    price: 1182
+  - group: "8 – 9 people"
+    price: 1030
+  - group: "10 – 11 people"
+    price: 1031
+  - group: "12 – 13 people"
+    price: 1039
+  - group: "14 – 15 people"
+    price: 970
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

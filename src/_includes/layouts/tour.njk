@@ -1,6 +1,7 @@
 ---
 layout: layouts/base.njk
 ---
+{%- set fp = { prices: prices, price: price } | fromPrice -%}
 {%- macro optLabel(list, v) -%}{% for o in list %}{% if o.value == v %}{{ o.label }}{% endif %}{% endfor %}{%- endmacro -%}
 <section class="tour-hero" style="--hero-img: url('{{ image }}')">
   <div class="wrap">
@@ -8,7 +9,7 @@ layout: layouts/base.njk
     <h1>{{ title }}</h1>
     <div class="tour-hero__meta">
       {% if duration %}<span><svg><use href="#i-calendar"/></svg>{{ duration }} days</span>{% endif %}
-      {% if price %}<span>from {{ price | euro }} per person</span>{% endif %}
+      {% if fp %}<span>from {{ fp | money(currency) }} per person</span>{% endif %}
     </div>
   </div>
 </section>
@@ -98,6 +99,23 @@ layout: layouts/base.njk
     </section>
     {% endif %}
 
+    {% if prices and prices.length %}
+    <section class="tour-block" aria-labelledby="prices-title">
+      <h2 id="prices-title">Prices</h2>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead><tr><th scope="col">Group size</th><th scope="col">Price per adult</th></tr></thead>
+          <tbody>
+            {% for r in prices %}
+            <tr{% if r.price == fp %} class="is-lowest"{% endif %}><th scope="row">{{ r.group }}</th><td>{{ r.price | money(currency) }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if price_note %}<p class="price-note">{{ price_note }}</p>{% endif %}
+    </section>
+    {% endif %}
+
     {% if (included and included.length) or (not_included and not_included.length) %}
     <section class="tour-block" aria-labelledby="incl-title">
       <h2 id="incl-title">What's included</h2>
@@ -117,7 +135,8 @@ layout: layouts/base.njk
 
   <aside class="tour-side" aria-label="Book this tour">
     <div class="tour-side__card">
-      {% if price %}<p class="tour-side__price"><span>from</span> {{ price | euro }} <span>per person</span></p>{% endif %}
+      {% if fp %}<p class="tour-side__price"><span>from</span> {{ fp | money(currency) }} <span>per person</span></p>{% endif %}
+      {% if prices and prices.length %}<a href="#prices-title" class="tour-side__link">See prices by group size</a>{% endif %}
       <dl class="tour-facts">
         {% if duration %}<div><dt>Duration</dt><dd>{{ duration }} days</dd></div>{% endif %}
         {% if categories and categories.length %}<div><dt>Category</dt><dd>{% for s in categories %}{{ optLabel(tourOptions.categories, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
