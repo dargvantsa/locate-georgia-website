@@ -136,8 +136,8 @@ collections:
         label: About us & team
         file: src/_data/team.json
         fields:
-          - { label: Small heading, name: eyebrow, widget: string }
-          - { label: Page title, name: title, widget: string }
+          - { label: Small heading, name: eyebrow, widget: string, required: false, hint: "Optional small text above the title." }
+          - { label: Page title, name: title, widget: text, hint: "Press Enter for a new line." }
           - { label: Top photo, name: hero_image, widget: image, hint: "Wide landscape photo." }
           - { label: Introduction, name: intro, widget: text }
           - label: Numbers

@@ -6,8 +6,8 @@ permalink: /about/
 {%- set a = team -%}
 <section class="page-hero" style="--hero-img: url('{{ a.hero_image }}')">
   <div class="wrap">
-    <p class="eyebrow eyebrow--light">{{ a.eyebrow }}</p>
-    <h1>{{ a.title }}</h1>
+    {% if a.eyebrow %}<p class="eyebrow eyebrow--light">{{ a.eyebrow }}</p>{% endif %}
+    <h1>{{ a.title | nl2br | safe }}</h1>
   </div>
 </section>
 

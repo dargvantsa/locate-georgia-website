@@ -322,7 +322,7 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 }
 .page-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(28,20,14,.72), rgba(28,20,14,.15) 75%); }
 .page-hero .wrap { position: relative; }
-.page-hero h1 { font-size: clamp(38px, 5.4vw, 64px); max-width: 16ch; margin-top: 14px; }
+.page-hero h1 { font-size: clamp(36px, 5vw, 60px); }
 
 .about-intro { padding-block: clamp(48px, 7vw, 88px) clamp(32px, 5vw, 56px); display: grid; gap: clamp(32px, 5vw, 56px); }
 .about-intro__lede { font-family: var(--serif); font-size: clamp(21px, 2.1vw, 27px); line-height: 1.45; max-width: 54ch; color: var(--ink); }
