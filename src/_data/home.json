@@ -5,7 +5,17 @@
     "text": "Discover Georgia through its people, its places and the moments you'll take home.",
     "button_label": "Find my Georgia",
     "image": "/img/uploads/hero-ushguli.jpg",
-    "location": ""
+    "location": "",
+    "slides": [
+      {
+        "image": "/img/uploads/hero-ushguli.jpg",
+        "location": ""
+      },
+      {
+        "image": "/img/uploads/5c5a19_f8fd2dc9a8ed460f814a19600c56b0ab~mv2.avif",
+        "location": ""
+      }
+    ]
   },
   "promises": [
     {

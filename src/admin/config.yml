@@ -87,8 +87,16 @@ collections:
               - { label: Headline line 2 (italic), name: title_line_2, widget: string }
               - { label: Text, name: text, widget: text }
               - { label: Button label, name: button_label, widget: string }
-              - { label: Background photo, name: image, widget: image, hint: "Wide landscape photo, at least 2400px wide. The left side sits under the text, so a calmer left side works best." }
-              - { label: Photo location, name: location, widget: string, required: false, hint: "Shown bottom-right, e.g. 'Mtskheta, Georgia'." }
+              - label: Slideshow photos
+                name: slides
+                widget: list
+                min: 1
+                max: 5
+                summary: "{{fields.location}}"
+                hint: "Add 2–3 photos. Each one shows for 3 seconds, then fades to the next. Drag to change the order. Wide landscape photos, at least 2400px wide; a calmer left side works best under the text."
+                fields:
+                  - { label: Photo, name: image, widget: image }
+                  - { label: Photo location, name: location, widget: string, required: false, hint: "Shown bottom-right, e.g. 'Ushguli, Svaneti'. Leave empty to hide." }
           - label: Three promises (under the search bar)
             name: promises
             widget: list

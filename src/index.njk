@@ -3,12 +3,25 @@ layout: layouts/base.njk
 permalink: /
 ---
 {%- set h = home.hero -%}
-<section class="hero" style="--hero-img: url('{{ h.image }}')">
+{%- set slides = h.slides if (h.slides and h.slides.length) else [{ image: h.image, location: h.location }] -%}
+<section class="hero" style="--hero-img: url('{{ slides[0].image }}')" data-interval="3000">
+  {% if slides.length > 1 %}
+  <div class="hero__slides" aria-hidden="true">
+    {% for s in slides %}
+    <div class="hero__slide{% if loop.first %} is-active{% endif %}" {% if loop.first %}style="background-image: url('{{ s.image }}')"{% else %}data-bg="{{ s.image }}"{% endif %} data-location="{{ s.location }}"></div>
+    {% endfor %}
+  </div>
+  {% endif %}
   <div class="wrap">
     <h1>{{ h.title_line_1 }}<br><em>{{ h.title_line_2 }}</em></h1>
     <p class="hero__lede">{{ h.text }}</p>
     <a href="/tours/" class="btn btn--light">{{ h.button_label }} <svg class="arrow"><use href="#i-arrow"/></svg></a>
-    {% if h.location %}<span class="hero__place"><svg><use href="#i-pin"/></svg>{{ h.location }}</span>{% endif %}
+    <span class="hero__place"{% if not slides[0].location %} hidden{% endif %}><svg><use href="#i-pin"/></svg><span class="hero__place-text">{{ slides[0].location }}</span></span>
+    {% if slides.length > 1 %}
+    <div class="hero__dots" role="tablist" aria-label="Photos">
+      {% for s in slides %}<button type="button" class="hero__dot{% if loop.first %} is-active{% endif %}" aria-label="Show photo {{ loop.index }}"></button>{% endfor %}
+    </div>
+    {% endif %}
   </div>
 </section>
 
