@@ -69,6 +69,15 @@ collections:
           - { label: Short name, name: title, widget: string, hint: "e.g. Arrival in Tbilisi, or Tbilisi – Mtskheta – Gudauri" }
           - { label: Description, name: text, widget: text, required: false , hint: "Leave an empty line between paragraphs." }
           - { label: Overnight in, name: overnight, widget: string, required: false, hint: "e.g. Tbilisi. Shown as 'Overnight in Tbilisi.'" }
+      - label: Photo gallery
+        name: gallery
+        widget: list
+        required: false
+        summary: "{{fields.alt}}"
+        hint: "Shown as a slider after the itinerary. Landscape photos work best."
+        fields:
+          - { label: Photo, name: image, widget: image }
+          - { label: Caption, name: alt, widget: string, required: false, hint: "What the photo shows. Also shown on the photo." }
       - { label: Included, name: included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
       - { label: Excluded, name: not_included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
       - { label: Show on homepage, name: featured, widget: boolean, default: false }

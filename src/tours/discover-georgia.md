@@ -62,5 +62,16 @@ not_included:
   - Travel insurance
   - Personal expenses
   - Tips for guide and driver
+gallery:
+  - image: /img/uploads/about-gergeti.jpg
+    alt: "Gergeti Trinity Church, Kazbegi"
+  - image: /img/uploads/welcome-group-kazbegi.jpg
+    alt: "Our travellers at Gergeti with Mount Kazbek behind"
+  - image: /img/uploads/tours-cover-tbilisi.jpg
+    alt: "Old Tbilisi and Narikala Fortress in autumn"
+  - image: /img/uploads/hero-mtskheta.jpg
+    alt: "Mtskheta, the ancient capital"
+  - image: /img/uploads/tour-discover.jpg
+    alt: "The Caucasus mountains"
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

@@ -77,6 +77,27 @@ layout: layouts/base.njk
       {% endif %}
     </section>
 
+    {% if gallery and gallery.length %}
+    <section class="tour-block" aria-labelledby="gal-title">
+      <h2 id="gal-title">Gallery</h2>
+      <div class="gallery" data-gallery>
+        <div class="gallery__track" tabindex="0" aria-label="Tour photos">
+          {% for g in gallery %}
+          <figure class="gallery__slide">
+            <img src="{{ g.image }}" alt="{{ g.alt }}" loading="lazy">
+            {% if g.alt %}<figcaption>{{ g.alt }}</figcaption>{% endif %}
+          </figure>
+          {% endfor %}
+        </div>
+        {% if gallery.length > 1 %}
+        <button type="button" class="slider-btn slider-btn--prev gallery__btn" data-dir="-1" aria-label="Previous photo"><svg class="arrow" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="slider-btn slider-btn--next gallery__btn" data-dir="1" aria-label="Next photo"><svg class="arrow"><use href="#i-arrow"/></svg></button>
+        <p class="gallery__count" aria-live="polite"><span data-current>1</span> / {{ gallery.length }}</p>
+        {% endif %}
+      </div>
+    </section>
+    {% endif %}
+
     {% if (included and included.length) or (not_included and not_included.length) %}
     <section class="tour-block" aria-labelledby="incl-title">
       <h2 id="incl-title">What's included</h2>

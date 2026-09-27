@@ -185,6 +185,20 @@
     apply();
   }
 
+  // Tour photo gallery: one photo at a time, arrows loop
+  document.querySelectorAll('[data-gallery]').forEach(function (g) {
+    var track = g.querySelector('.gallery__track');
+    var slides = track.children, n = slides.length;
+    var cur = g.querySelector('[data-current]');
+    var idx = function () { return Math.round(track.scrollLeft / (slides[0].offsetWidth + 12)); };
+    var go = function (i) { i = (i + n) % n; if (cur) cur.textContent = i + 1; track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft }); };
+    g.querySelectorAll('.gallery__btn').forEach(function (b) {
+      b.addEventListener('click', function () { go(idx() + parseInt(b.dataset.dir, 10)); });
+    });
+    var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(function () { if (cur) cur.textContent = idx() + 1; }, 150); });
+    track.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(idx() + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx() - 1); } });
+  });
+
   // Current year in footer
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
