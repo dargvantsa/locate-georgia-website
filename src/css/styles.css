@@ -474,7 +474,18 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .itinerary summary:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
 .itinerary__text { padding: 0 4px 24px; color: var(--ink-2); max-width: 68ch; display: grid; gap: 12px; font-size: 16px; }
 .itinerary__text strong { color: var(--ink); }
-.tour-incl { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.incl { display: grid; grid-template-columns: 1fr 1fr; background: var(--card); box-shadow: 0 1px 0 var(--line); border: 1px solid var(--line); }
+.incl__col { padding: 0 0 12px; }
+.incl__col + .incl__col { border-left: 1px solid var(--line); }
+.incl__col h3 { font: 600 14px var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 16px 22px; margin: 0; }
+.incl__col--yes h3 { background: var(--terracotta); color: var(--white); }
+.incl__col--no h3 { background: var(--paper-2); color: var(--ink); }
+.incl ul { list-style: none; margin: 0; padding: 0; }
+.incl li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 22px; font-size: 15px; color: var(--ink-2); border-bottom: 1px solid var(--line); }
+.incl li:last-child { border-bottom: 0; }
+.incl li svg { flex: none; width: 18px; height: 18px; margin-top: 2px; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.incl__col--yes svg { stroke: var(--terracotta); }
+.incl__col--no svg { stroke: var(--ink-3); }
 .tour-side { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 90px); }
 .tour-side__card { background: var(--card); box-shadow: var(--shadow); padding: 28px; display: grid; gap: 18px; border-top: 3px solid var(--terracotta); }
 .tour-side__price { font-family: var(--serif); font-size: 36px; color: var(--ink); line-height: 1.1; font-variant-numeric: lining-nums; }
@@ -495,7 +506,8 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
   .tour-side { position: static; }
 }
 @media (max-width: 640px) {
-  .tour-incl { grid-template-columns: 1fr; }
+  .incl { grid-template-columns: 1fr; }
+  .incl__col + .incl__col { border-left: 0; border-top: 1px solid var(--line); }
 }
 
 

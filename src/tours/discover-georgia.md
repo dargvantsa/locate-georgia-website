@@ -49,5 +49,18 @@ itinerary:
   - day: "6"
     title: "Kutaisi – Zhinvali – Ananuri – Gudauri"
     overnight: Gudauri
+included:
+  - Airport transfers on arrival and departure
+  - Accommodation in hotels with breakfast (12 nights)
+  - Private air-conditioned vehicle for the whole tour
+  - Professional English-speaking guide
+  - Entrance fees to the sites in the itinerary
+  - Bottled water during transfers
+not_included:
+  - International flights
+  - Lunches and dinners
+  - Travel insurance
+  - Personal expenses
+  - Tips for guide and driver
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

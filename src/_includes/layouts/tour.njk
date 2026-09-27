@@ -78,9 +78,18 @@ layout: layouts/base.njk
     </section>
 
     {% if (included and included.length) or (not_included and not_included.length) %}
-    <section class="tour-block tour-incl" aria-label="What is included">
-      {% if included and included.length %}<div><h2>Included</h2><ul class="tick-list">{% for i in included %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endif %}
-      {% if not_included and not_included.length %}<div><h2>Not included</h2><ul class="tick-list tick-list--no">{% for i in not_included %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endif %}
+    <section class="tour-block" aria-labelledby="incl-title">
+      <h2 id="incl-title">What's included</h2>
+      <div class="incl">
+        <div class="incl__col incl__col--yes">
+          <h3>Included</h3>
+          <ul>{% for i in (included or []) %}<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>{{ i }}</li>{% endfor %}</ul>
+        </div>
+        <div class="incl__col incl__col--no">
+          <h3>Excluded</h3>
+          <ul>{% for i in (not_included or []) %}<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>{{ i }}</li>{% endfor %}</ul>
+        </div>
+      </div>
     </section>
     {% endif %}
   </article>
