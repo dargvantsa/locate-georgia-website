@@ -59,8 +59,15 @@ layout: layouts/base.njk
         {% for d in itinerary %}
         <li class="itinerary__day">
           <details{% if loop.first %} open{% endif %}>
-            <summary><span class="itinerary__num">Day {{ d.day or loop.index }}</span><span class="itinerary__title">{{ d.title }}</span></summary>
-            {% if d.text %}<div class="itinerary__text">{{ d.text | nl2br | safe }}</div>{% endif %}
+            <summary>
+              <span class="itinerary__title">Day {{ d.day or loop.index }}: {{ d.title }}</span>
+              <svg class="itinerary__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="itinerary__text">
+              {% if d.text %}{% for para in d.text.split("\n\n") %}<p>{{ para | nl2br | safe }}</p>{% endfor %}{% endif %}
+              {% if d.overnight %}<p>Overnight in <strong>{{ d.overnight }}</strong>.</p>{% endif %}
+              {% if not d.text and not d.overnight %}<p>Details coming soon.</p>{% endif %}
+            </div>
           </details>
         </li>
         {% endfor %}

@@ -465,13 +465,15 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .tick-list--no li::before { width: 12px; height: 2px; border: 0; background: var(--ink-3); transform: none; top: .75em; }
 .itinerary { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .itinerary__day { border-bottom: 1px solid var(--line); }
-.itinerary summary { display: flex; gap: 18px; align-items: baseline; padding: 16px 32px 16px 0; cursor: pointer; list-style: none; position: relative; }
+.itinerary summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 4px; cursor: pointer; list-style: none; }
 .itinerary summary::-webkit-details-marker { display: none; }
-.itinerary summary::after { content: "+"; position: absolute; right: 4px; top: 12px; font-size: 22px; color: var(--terracotta); }
-.itinerary details[open] summary::after { content: "–"; }
-.itinerary__num { flex: none; width: 60px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--terracotta); }
-.itinerary__title { font-family: var(--serif); font-size: 20px; color: var(--ink); }
-.itinerary__text { padding: 0 0 20px 78px; color: var(--ink-2); max-width: 65ch; }
+.itinerary__title { font: 600 15px/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--ink); transition: color .2s; }
+.itinerary__chev { flex: none; width: 22px; height: 22px; fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s ease, stroke .2s; }
+.itinerary summary:hover .itinerary__title, .itinerary details[open] .itinerary__title { color: var(--terracotta); }
+.itinerary details[open] .itinerary__chev { transform: rotate(180deg); stroke: var(--terracotta); }
+.itinerary summary:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+.itinerary__text { padding: 0 4px 24px; color: var(--ink-2); max-width: 68ch; display: grid; gap: 12px; font-size: 16px; }
+.itinerary__text strong { color: var(--ink); }
 .tour-incl { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 .tour-side { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 90px); }
 .tour-side__card { background: var(--card); box-shadow: var(--shadow); padding: 28px; display: grid; gap: 18px; border-top: 3px solid var(--terracotta); }
@@ -494,7 +496,6 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 }
 @media (max-width: 640px) {
   .tour-incl { grid-template-columns: 1fr; }
-  .itinerary__text { padding-left: 0; }
 }
 
 

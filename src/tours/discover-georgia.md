@@ -17,13 +17,37 @@ categories:
   - hiking
 places:
   - tbilisi
-  - mtskheta
+  - jvari
+  - gori
   - uplistsikhe
-  - borjomi
   - akhaltsikhe
   - vardzia
+  - borjomi
   - kutaisi
+  - prometheus
+  - martvili
   - ananuri
+  - gudauri
   - kazbegi
+itinerary:
+  - day: "1"
+    title: "Arrival in Tbilisi"
+    text: "Arrival at Tbilisi International airport. Meet and greet at the arrival hall and transfer to Tbilisi hotel."
+    overnight: Tbilisi
+  - day: "2"
+    title: "Tbilisi – Jvari – Gori – Uplistsikhe – Akhaltsikhe"
+    overnight: Akhaltsikhe
+  - day: "3"
+    title: "Akhaltsikhe – Rabati – Vardzia – Akhaltsikhe"
+    overnight: Akhaltsikhe
+  - day: "4"
+    title: "Akhaltsikhe – Borjomi – Rikoti Pass – Kutaisi"
+    overnight: Kutaisi
+  - day: "5"
+    title: "Kutaisi – Prometheus Cave – Martvili Canyon – Kutaisi"
+    overnight: Kutaisi
+  - day: "6"
+    title: "Kutaisi – Zhinvali – Ananuri – Gudauri"
+    overnight: Gudauri
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

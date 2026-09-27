@@ -66,8 +66,9 @@ collections:
         summary: "Day {{fields.day}}: {{fields.title}}"
         fields:
           - { label: Day, name: day, widget: string, hint: "e.g. 1 or 3–4" }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: text, widget: text, required: false }
+          - { label: Short name, name: title, widget: string, hint: "e.g. Arrival in Tbilisi, or Tbilisi – Mtskheta – Gudauri" }
+          - { label: Description, name: text, widget: text, required: false , hint: "Leave an empty line between paragraphs." }
+          - { label: Overnight in, name: overnight, widget: string, required: false, hint: "e.g. Tbilisi. Shown as 'Overnight in Tbilisi.'" }
       - { label: Included, name: included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
       - { label: Not included, name: not_included, widget: list, required: false, field: { label: Item, name: text, widget: string } }
       - { label: Show on homepage, name: featured, widget: boolean, default: false }
