@@ -152,6 +152,7 @@ collections:
           - { label: Story, name: story, widget: text, hint: "Leave an empty line between paragraphs." }
           - { label: Story photo, name: story_image, widget: image }
           - { label: Story photo description, name: story_image_alt, widget: string, required: false }
+          - { label: Story photo caption, name: story_image_caption, widget: string, required: false, hint: "Shown at the bottom of the photo, e.g. 'CEO, Gvantsa Darchia'." }
           - { label: Values heading, name: values_title, widget: string }
           - label: Values
             name: values

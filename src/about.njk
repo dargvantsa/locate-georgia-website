@@ -24,7 +24,10 @@ permalink: /about/
 </section>
 
 <section class="about-story">
-  <div class="about-story__img"><img src="{{ a.story_image }}" alt="{{ a.story_image_alt }}" loading="lazy"></div>
+  <figure class="about-story__img">
+    <img src="{{ a.story_image }}" alt="{{ a.story_image_alt }}" loading="lazy">
+    {% if a.story_image_caption %}<figcaption>{{ a.story_image_caption }}</figcaption>{% endif %}
+  </figure>
   <div class="about-story__text">
     <p class="eyebrow">{{ a.story_title }}</p>
     {% for para in a.story.split("\n\n") %}<p>{{ para }}</p>{% endfor %}
