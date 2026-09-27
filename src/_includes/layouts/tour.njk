@@ -55,8 +55,7 @@ layout: layouts/base.njk
       {% if price %}<p class="tour-side__price"><span>from</span> {{ price | euro }} <span>per person</span></p>{% endif %}
       <dl class="tour-facts">
         {% if duration %}<div><dt>Duration</dt><dd>{{ duration }} days</dd></div>{% endif %}
-        {% if styles and styles.length %}<div><dt>Travel style</dt><dd>{% for s in styles %}{{ optLabel(tourOptions.styles, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
-        {% if interests and interests.length %}<div><dt>Themes</dt><dd>{% for s in interests %}{{ optLabel(tourOptions.interests, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
+        {% if categories and categories.length %}<div><dt>Category</dt><dd>{% for s in categories %}{{ optLabel(tourOptions.categories, s) }}{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
       </dl>
       <a href="/contact/#plan" class="btn btn--primary tour-side__btn">Ask about this tour <svg class="arrow"><use href="#i-arrow"/></svg></a>
       {% if site.whatsapp %}<a href="{{ site.whatsapp }}" target="_blank" rel="noopener" class="tour-side__wa"><svg><use href="#i-wa"/></svg>Chat on WhatsApp</a>{% endif %}

@@ -10,22 +10,40 @@ permalink: /tours/
   </div>
 </section>
 
-<div class="wrap finder-wrap">
-  {% set finderButton = "Show tours" %}{% include "partials/finder.njk" %}
-</div>
-
-<section class="wrap tours-list" aria-labelledby="tours-count">
+<section class="wrap tours-list">
   {% if t.intro %}<p class="tours-list__intro">{{ t.intro }}</p>{% endif %}
-  <div class="tours-list__bar">
-    <p id="tours-count" class="tours-list__count" aria-live="polite">{{ collections.tours.length }} tours</p>
-    <button type="button" class="tours-list__clear" id="toursClear" hidden>Clear filters</button>
-  </div>
-  <div class="tour-grid tour-grid--list" id="tourGrid">
-    {% for tour in collections.tours %}{% include "partials/tour-card.njk" %}{% endfor %}
-  </div>
-  <div class="tours-list__empty" id="toursEmpty" hidden>
-    <h2>No tour matches all of that yet.</h2>
-    <p>We build journeys around you, so tell us what you have in mind and we will plan it.</p>
-    <a href="/contact/#plan" class="btn btn--primary">Plan my journey <svg class="arrow"><use href="#i-arrow"/></svg></a>
+  <div class="tours-layout">
+    <aside class="filters" aria-label="Filter tours">
+      <button type="button" class="filters__toggle" id="filtersToggle" aria-expanded="false" aria-controls="filtersForm">
+        Filters <span class="filters__badge" id="filtersBadge" hidden></span>
+      </button>
+      <form class="filters__form" id="filtersForm">
+        <fieldset class="filters__group">
+          <legend>Duration</legend>
+          {% for o in tourOptions.durations %}
+          <label class="check"><input type="checkbox" name="duration" value="{{ o.value }}"><span>{{ o.label }}</span></label>
+          {% endfor %}
+        </fieldset>
+        <fieldset class="filters__group">
+          <legend>Category</legend>
+          {% for o in tourOptions.categories %}
+          <label class="check"><input type="checkbox" name="category" value="{{ o.value }}"><span>{{ o.label }}</span></label>
+          {% endfor %}
+        </fieldset>
+        <button type="button" class="tours-list__clear" id="toursClear" hidden>Clear filters</button>
+      </form>
+    </aside>
+
+    <div class="tours-results">
+      <p id="tours-count" class="tours-list__count" aria-live="polite">{{ collections.tours.length }} tours</p>
+      <div class="tour-grid tour-grid--list" id="tourGrid">
+        {% for tour in collections.tours %}{% include "partials/tour-card.njk" %}{% endfor %}
+      </div>
+      <div class="tours-list__empty" id="toursEmpty" hidden>
+        <h2>No tour matches all of that yet.</h2>
+        <p>We build journeys around you, so tell us what you have in mind and we will plan it.</p>
+        <a href="/contact/#plan" class="btn btn--primary">Plan my journey <svg class="arrow"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
   </div>
 </section>

@@ -9,11 +9,10 @@ image_alt: Grapes and qvevri clay vessels in a Kakheti vineyard
 featured: true
 order: 2
 published: true
-styles:
+categories:
   - private
   - group
-interests:
-  - culture
   - wine
+  - cultural
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

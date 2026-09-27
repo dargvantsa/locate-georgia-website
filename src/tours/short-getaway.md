@@ -9,12 +9,11 @@ image_alt: ""
 featured: true
 order: 1
 published: true
-styles:
+categories:
   - private
   - group
-interests:
-  - culture
+  - cultural
   - wine
-  - food
+  - gastro
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

@@ -121,32 +121,41 @@
     });
   }
 
-  // Tours page: filter cards by the search box (also reads ?style=&duration=&interest= from the homepage)
+  // Tours page: checkbox filters on the left (also reads ?duration=&category= from the homepage search)
   var grid = document.getElementById('tourGrid');
-  var finder = document.getElementById('finder');
-  if (grid && finder) {
+  var ff = document.getElementById('filtersForm');
+  if (grid && ff) {
     var cards = grid.querySelectorAll('.tour-card');
     var countEl = document.getElementById('tours-count');
     var emptyEl = document.getElementById('toursEmpty');
     var clearEl = document.getElementById('toursClear');
-    var sel = { style: finder.querySelector('[name="style"]'), duration: finder.querySelector('[name="duration"]'), interest: finder.querySelector('[name="interest"]') };
+    var badge = document.getElementById('filtersBadge');
     var params = new URLSearchParams(location.search);
-    Object.keys(sel).forEach(function (k) { if (params.get(k)) sel[k].value = params.get(k); });
+    params.getAll('duration').concat(params.getAll('category')).forEach(function (v) {
+      ff.querySelectorAll('input[value="' + v + '"]').forEach(function (i) { i.checked = true; });
+    });
+    var picked = function (name) { return Array.prototype.map.call(ff.querySelectorAll('input[name="' + name + '"]:checked'), function (i) { return i.value; }); };
     var apply = function () {
-      var st = sel.style.value, du = sel.duration.value, it = sel.interest.value, n = 0;
+      var du = picked('duration'), ca = picked('category'), n = 0;
       cards.forEach(function (c) {
-        var ok = (!st || (' ' + c.dataset.styles + ' ').indexOf(' ' + st + ' ') > -1) &&
-                 (!du || c.dataset.duration === du) &&
-                 (!it || (' ' + c.dataset.interests + ' ').indexOf(' ' + it + ' ') > -1);
+        var cats = (c.dataset.categories || '').split(' ');
+        var ok = (!du.length || du.indexOf(c.dataset.duration) > -1) &&
+                 (!ca.length || ca.every(function (x) { return cats.indexOf(x) > -1; }));
         c.hidden = !ok; if (ok) n++;
       });
       countEl.textContent = n + (n === 1 ? ' tour' : ' tours');
       emptyEl.hidden = n > 0;
-      clearEl.hidden = !(st || du || it);
+      var total = du.length + ca.length;
+      clearEl.hidden = !total;
+      if (badge) { badge.hidden = !total; badge.textContent = total; }
     };
-    finder.addEventListener('submit', function (e) { e.preventDefault(); apply(); });
-    Object.keys(sel).forEach(function (k) { sel[k].addEventListener('change', apply); });
-    clearEl.addEventListener('click', function () { finder.reset(); apply(); });
+    ff.addEventListener('change', apply);
+    clearEl.addEventListener('click', function () { ff.reset(); apply(); });
+    var tg = document.getElementById('filtersToggle');
+    if (tg) tg.addEventListener('click', function () {
+      var open = tg.parentNode.classList.toggle('is-open');
+      tg.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
     apply();
   }
 

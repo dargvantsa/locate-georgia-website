@@ -9,12 +9,11 @@ image_alt: Georgian food and wine
 featured: true
 order: 4
 published: true
-styles:
+categories:
   - private
   - group
   - romantic
-interests:
-  - food
+  - gastro
   - wine
 ---
 Full itinerary coming soon. Contact us to plan the dates and details.

@@ -3,9 +3,9 @@
     <svg class="finder__icon"><use href="#i-compass"/></svg>
     <div class="finder__control">
       <label for="f-style">Your travel style</label>
-      <select id="f-style" name="style">
+      <select id="f-style" name="category">
         <option value="">Any style</option>
-        {% for o in tourOptions.styles %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}
+        {% for o in tourOptions.categories %}{% if o.group == "style" %}<option value="{{ o.value }}">{{ o.label }}</option>{% endif %}{% endfor %}
       </select>
     </div>
   </div>
@@ -23,11 +23,11 @@
     <svg class="finder__icon"><use href="#i-mountain"/></svg>
     <div class="finder__control">
       <label for="f-interest">What moves you?</label>
-      <select id="f-interest" name="interest">
-        <option value="">Nature, culture, food…</option>
-        {% for o in tourOptions.interests %}<option value="{{ o.value }}">{{ o.label }}</option>{% endfor %}
+      <select id="f-interest" name="category">
+        <option value="">Wine, food, hiking…</option>
+        {% for o in tourOptions.categories %}{% if o.group == "theme" %}<option value="{{ o.value }}">{{ o.label }}</option>{% endif %}{% endfor %}
       </select>
     </div>
   </div>
-  <button type="submit" class="btn btn--primary">{{ finderButton or "Explore" }} <svg class="arrow"><use href="#i-arrow"/></svg></button>
+  <button type="submit" class="btn btn--primary">Explore <svg class="arrow"><use href="#i-arrow"/></svg></button>
 </form>

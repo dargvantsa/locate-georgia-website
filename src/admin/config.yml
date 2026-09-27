@@ -40,23 +40,17 @@ collections:
     fields:
       - { label: Tour name, name: title, widget: string }
       - { label: Short description, name: summary, widget: text, hint: "One or two sentences. Shown at the top of the tour page and in Google results." }
-      - { label: Duration (days), name: duration, widget: number, value_type: int, min: 1, required: false }
+      - { label: Duration (days), name: duration, widget: number, value_type: int, min: 1, required: false, hint: "The Tours page filter has 4, 5, 7, 10 and 14 days." }
       - { label: Price from (€ per person), name: price, widget: number, value_type: int, min: 0, required: false }
       - { label: Main photo, name: image, widget: image, hint: "Landscape photo, at least 1600px wide." }
       - { label: Photo description, name: image_alt, widget: string, required: false, hint: "What the photo shows, e.g. 'Gergeti Trinity Church under Mount Kazbek'. Helps Google and blind visitors." }
-      - label: Travel style
-        name: styles
+      - label: Category
+        name: categories
         widget: select
         multiple: true
         required: false
-        hint: "Used by the search box on the homepage and Tours page."
-        options: [{ label: Private journey, value: private }, { label: Small group, value: group }, { label: Family holiday, value: family }, { label: Romantic holiday, value: romantic }, { label: Winter tour, value: winter }]
-      - label: Themes
-        name: interests
-        widget: select
-        multiple: true
-        required: false
-        options: [{ label: History & culture, value: culture }, { label: Wine, value: wine }, { label: Food & gastronomy, value: food }, { label: Mountains & nature, value: nature }, { label: Medical & wellness, value: wellness }]
+        hint: "Used by the filters on the Tours page and the homepage search."
+        options: [{ label: Private tours, value: private }, { label: Group tours, value: group }, { label: Family holidays, value: family }, { label: Romantic getaways, value: romantic }, { label: Ski/winter tours, value: winter }, { label: Wine tours, value: wine }, { label: Gastro tours, value: gastro }, { label: Hiking tours, value: hiking }, { label: Jeep tours, value: jeep }, { label: Cultural tours, value: cultural }]
       - { label: Highlights, name: highlights, widget: list, required: false, field: { label: Highlight, name: text, widget: string } }
       - label: Itinerary (day by day)
         name: itinerary

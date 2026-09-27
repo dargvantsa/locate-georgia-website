@@ -1,21 +1,21 @@
 {
-  "styles": [
-    { "value": "private", "label": "Private journey" },
-    { "value": "group", "label": "Small group" },
-    { "value": "family", "label": "Family holiday" },
-    { "value": "romantic", "label": "Romantic holiday" },
-    { "value": "winter", "label": "Winter tour" }
-  ],
   "durations": [
-    { "value": "short", "label": "Up to 5 days" },
-    { "value": "week", "label": "6 – 9 days" },
-    { "value": "long", "label": "10 days or more" }
+    { "value": "4", "label": "4 day tour" },
+    { "value": "5", "label": "5 day tour" },
+    { "value": "7", "label": "7 day tour" },
+    { "value": "10", "label": "10 day tour" },
+    { "value": "14", "label": "14 day tour" }
   ],
-  "interests": [
-    { "value": "culture", "label": "History & culture" },
-    { "value": "wine", "label": "Wine" },
-    { "value": "food", "label": "Food & gastronomy" },
-    { "value": "nature", "label": "Mountains & nature" },
-    { "value": "wellness", "label": "Medical & wellness" }
+  "categories": [
+    { "value": "private", "label": "Private tours", "group": "style" },
+    { "value": "group", "label": "Group tours", "group": "style" },
+    { "value": "family", "label": "Family holidays", "group": "style" },
+    { "value": "romantic", "label": "Romantic getaways", "group": "style" },
+    { "value": "winter", "label": "Ski/winter tours", "group": "style" },
+    { "value": "wine", "label": "Wine tours", "group": "theme" },
+    { "value": "gastro", "label": "Gastro tours", "group": "theme" },
+    { "value": "hiking", "label": "Hiking tours", "group": "theme" },
+    { "value": "jeep", "label": "Jeep tours", "group": "theme" },
+    { "value": "cultural", "label": "Cultural tours", "group": "theme" }
   ]
 }
