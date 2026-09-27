@@ -325,10 +325,11 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .page-hero h1 { font-size: clamp(36px, 5vw, 60px); }
 
 .about-intro { padding-block: clamp(48px, 7vw, 88px) clamp(32px, 5vw, 56px); display: grid; gap: clamp(32px, 5vw, 56px); }
-.about-intro__text { display: grid; gap: 16px; }
+.about-intro__text { display: grid; gap: 16px; justify-items: center; text-align: center; }
+.about-intro__text .about-intro__lede { margin-inline: auto; }
 .about-intro__lede { font-family: var(--serif); font-size: clamp(21px, 2.1vw, 27px); line-height: 1.45; max-width: 54ch; color: var(--ink); }
 .stats { list-style: none; margin: 0; padding: 28px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; border-top: 1px solid var(--line); }
-.stats li { display: flex; flex-direction: column; gap: 6px; }
+.stats li { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; }
 .stats__num { font-family: var(--serif); font-size: clamp(36px, 4vw, 52px); line-height: 1; color: var(--terracotta); font-variant-numeric: lining-nums; }
 .stats__label { font-size: 14px; color: var(--ink-2); }
 
