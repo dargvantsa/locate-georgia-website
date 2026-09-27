@@ -7,7 +7,8 @@ permalink: /about/
 <section class="page-hero" style="--hero-img: url('{{ a.hero_image }}')">
   <div class="wrap">
     {% if a.eyebrow %}<p class="eyebrow eyebrow--light">{{ a.eyebrow }}</p>{% endif %}
-    <h1>{{ a.title | nl2br | safe }}</h1>
+    {%- set tl = a.title.split("\n") -%}
+    <h1>{{ tl[0] }}{% if tl[1] %}<br><em>{{ tl[1] }}</em>{% endif %}</h1>
   </div>
 </section>
 

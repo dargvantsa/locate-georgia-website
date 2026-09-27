@@ -137,7 +137,7 @@ collections:
         file: src/_data/team.json
         fields:
           - { label: Small heading, name: eyebrow, widget: string, required: false, hint: "Optional small text above the title." }
-          - { label: Page title, name: title, widget: text, hint: "Press Enter for a new line." }
+          - { label: Page title, name: title, widget: text, hint: "Press Enter for a new line. The second line is shown in italics." }
           - { label: Top photo, name: hero_image, widget: image, hint: "Wide landscape photo." }
           - { label: Mission heading, name: intro_title, widget: string, required: false }
           - { label: Mission text, name: intro, widget: text }
