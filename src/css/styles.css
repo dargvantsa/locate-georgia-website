@@ -409,6 +409,8 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 
 /* ---------- Tours list ---------- */
 .page-hero--short { padding-block: clamp(90px, 12vw, 150px) clamp(80px, 9vw, 110px); }
+.page-hero--tall { min-height: clamp(380px, 44vw, 640px); display: flex; align-items: flex-end; background-position: center 18%; }
+.page-hero--tall .wrap { width: 100%; }
 .page-hero--photo { min-height: clamp(260px, 34vw, 460px); background-position: center 38%; }
 .page-hero--photo::before { background: none; }
 .tours-list { padding-block: clamp(32px, 4vw, 48px) clamp(56px, 7vw, 88px); }
