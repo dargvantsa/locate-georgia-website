@@ -46,6 +46,59 @@
     start();
   }
 
+  // Tour slider: pages of 3 (2 on tablets, 1 on phones)
+  document.querySelectorAll('[data-slider]').forEach(function (track) {
+    var name = track.getAttribute('data-slider');
+    var nav = document.querySelector('[data-slider-nav="' + name + '"]');
+    var dotsWrap = document.querySelector('[data-slider-dots="' + name + '"]');
+    var cards = track.querySelectorAll('.tour-card');
+    if (!cards.length) return;
+    var prev = nav && nav.querySelector('[data-dir="-1"]');
+    var next = nav && nav.querySelector('[data-dir="1"]');
+
+    var perView = function () {
+      var w = cards[0].getBoundingClientRect().width;
+      return Math.max(1, Math.round(track.clientWidth / (w || 1)));
+    };
+    var pages = function () { return Math.max(1, Math.ceil(cards.length / perView())); };
+    var pageNow = function () {
+      var max = track.scrollWidth - track.clientWidth;
+      if (max <= 0) return 0;
+      return Math.round((track.scrollLeft / max) * (pages() - 1));
+    };
+    var goTo = function (p) {
+      var target = cards[Math.min(cards.length - 1, p * perView())];
+      track.scrollTo({ left: target.offsetLeft - cards[0].offsetLeft });
+    };
+    var build = function () {
+      var n = pages();
+      var show = n > 1;
+      if (nav) nav.hidden = !show;
+      if (dotsWrap) {
+        dotsWrap.hidden = !show;
+        dotsWrap.innerHTML = '';
+        for (var i = 0; i < n; i++) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'slider-dot';
+          b.setAttribute('aria-label', 'Show tours ' + (i + 1));
+          (function (i) { b.addEventListener('click', function () { goTo(i); }); })(i);
+          dotsWrap.appendChild(b);
+        }
+      }
+      update();
+    };
+    var update = function () {
+      var p = pageNow(), n = pages();
+      if (dotsWrap) dotsWrap.querySelectorAll('.slider-dot').forEach(function (d, i) { d.classList.toggle('is-active', i === p); });
+    };
+    // arrows always work: after the last group they loop back to the first, and vice versa
+    if (prev) prev.addEventListener('click', function () { var n = pages(), p = pageNow(); goTo(p <= 0 ? n - 1 : p - 1); });
+    if (next) next.addEventListener('click', function () { var n = pages(), p = pageNow(); goTo(p >= n - 1 ? 0 : p + 1); });
+    var t; track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(update, 80); });
+    var r; window.addEventListener('resize', function () { clearTimeout(r); r = setTimeout(build, 150); });
+    build();
+  });
+
   // Current year in footer
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();

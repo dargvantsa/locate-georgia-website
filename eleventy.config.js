@@ -21,7 +21,7 @@ export default function (eleventyConfig) {
       .getFilteredByGlob("src/tours/*.md")
       .filter((t) => t.data.published !== false && t.data.featured)
       .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
-      .slice(0, 3)
+      .slice(0, 9)
   );
 
   eleventyConfig.addCollection("journal", (api) =>

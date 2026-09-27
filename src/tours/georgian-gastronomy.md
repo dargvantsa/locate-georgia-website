@@ -6,7 +6,7 @@ duration: 10
 price: 1990
 image: /img/uploads/istock-1164983166-2-.jpg
 image_alt: Georgian food and wine
-featured: false
+featured: true
 order: 4
 published: true
 ---

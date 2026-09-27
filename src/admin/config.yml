@@ -29,7 +29,7 @@ collections:
   - name: tours
     label: Tours
     label_singular: Tour
-    description: Every tour on the website. Tick "Show on homepage" for up to three signature journeys.
+    description: Every tour on the website. Tick "Show on homepage" for up to 9 signature journeys (shown 3 at a time in a slider).
     folder: src/tours
     extension: md
     format: frontmatter
@@ -107,7 +107,7 @@ collections:
           - label: Signature journeys section
             name: journeys
             widget: object
-            hint: "The three tours shown here are the ones ticked 'Show on homepage' under Tours."
+            hint: "The tours shown here are the ones ticked 'Show on homepage' under Tours (up to 9, three at a time in a slider)."
             fields:
               - { label: Small heading, name: eyebrow, widget: string }
               - { label: Title, name: title, widget: string }

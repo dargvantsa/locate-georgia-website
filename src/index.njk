@@ -86,10 +86,21 @@ permalink: /
       <p class="eyebrow">{{ home.journeys.eyebrow }}</p>
       <h2 id="journeys-title">{{ home.journeys.title }}</h2>
     </div>
-    <a href="/tours/" class="link-underline">{{ home.journeys.link_label }} <svg class="arrow"><use href="#i-arrow"/></svg></a>
   </div>
-  <div class="tour-grid">
-    {% for tour in collections.featuredTours %}{% include "partials/tour-card.njk" %}{% endfor %}
+  <div class="tour-carousel">
+    <div class="tour-slider" data-slider="tours" tabindex="0" aria-label="Signature journeys">
+      <div class="tour-track">
+        {% for tour in collections.featuredTours %}{% include "partials/tour-card.njk" %}{% endfor %}
+      </div>
+    </div>
+    <div class="slider-nav" data-slider-nav="tours" hidden>
+      <button type="button" class="slider-btn slider-btn--prev" data-dir="-1" aria-label="Previous tours"><svg class="arrow" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+      <button type="button" class="slider-btn slider-btn--next" data-dir="1" aria-label="Next tours"><svg class="arrow"><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+  <div class="slider-dots" data-slider-dots="tours" hidden></div>
+  <div class="journeys__cta">
+    <a href="/tours/" class="btn btn--primary">{{ home.journeys.link_label }} <svg class="arrow"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
