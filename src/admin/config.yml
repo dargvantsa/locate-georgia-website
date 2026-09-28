@@ -258,8 +258,6 @@ collections:
               - { label: Text, name: text, widget: text }
           - { label: Form heading, name: form_title, widget: string }
           - { label: Form text, name: form_text, widget: text, required: false }
-          - { label: Form photo, name: form_image, widget: image }
-          - { label: Form photo description, name: form_image_alt, widget: string, required: false }
           - { label: Thank-you message, name: success_message, widget: text }
 
       - name: tours_page

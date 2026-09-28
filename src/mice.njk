@@ -45,11 +45,20 @@ permalink: /mice/
 </section>
 
 <section class="partner" id="mice-form" aria-labelledby="mf-title">
-  <div class="partner__img"><img src="{{ m.form_image }}" alt="{{ m.form_image_alt }}" loading="lazy"></div>
+  <div class="mice-contact">
+    <p class="eyebrow">Talk to our MICE team</p>
+    <h2 id="mf-title">{{ m.form_title }}</h2>
+    {% if m.form_text %}<p>{{ m.form_text }}</p>{% endif %}
+    <ul class="mice-contact__list">
+      <li><svg><use href="#i-mail"/></svg><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      {% if site.phone_1 %}<li><svg><use href="#i-phone"/></svg><a href="tel:{{ site.phone_1 | digits }}">{{ site.phone_1 }}</a></li>{% endif %}
+      {% if site.whatsapp %}<li><svg><use href="#i-wa"/></svg><a href="{{ site.whatsapp }}" target="_blank" rel="noopener">Chat on WhatsApp</a></li>{% endif %}
+      <li><svg><use href="#i-pin"/></svg><span>{{ site.address }}</span></li>
+    </ul>
+  </div>
   <div class="partner__body">
     <div>
-      <h2 id="mf-title">{{ m.form_title }}</h2>
-      {% if m.form_text %}<p class="partner__text">{{ m.form_text }}</p>{% endif %}
+      <h3 class="mice-form__title">Request a proposal</h3>
     </div>
     <form class="partner-form" name="mice-inquiry" method="POST" action="/mice/?sent=1#mice-form" data-netlify="true" netlify-honeypot="company_website" data-success="{{ m.success_message }}">
       <input type="hidden" name="form-name" value="mice-inquiry">

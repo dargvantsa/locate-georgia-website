@@ -577,6 +577,14 @@ a:hover .slider-btn .arrow, .slider-btn:hover .arrow { transform: none; }
 .steps h3 { font-size: 22px; margin-top: 6px; }
 .steps p { color: var(--ink-2); font-size: 15px; }
 .partner__text { color: var(--ink-2); margin-top: 10px; }
+.mice-contact { background: var(--ink); color: var(--white); padding: clamp(40px, 5vw, 64px) clamp(24px, 5vw, 64px); display: grid; gap: 18px; align-content: center; }
+.mice-contact h2 { font-size: clamp(30px, 3.4vw, 42px); }
+.mice-contact > p:not(.eyebrow) { color: rgba(255,255,255,.9); max-width: 42ch; }
+.mice-contact__list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 14px; }
+.mice-contact__list li { display: flex; align-items: center; gap: 12px; font-size: 16px; }
+.mice-contact__list svg { width: 20px; height: 20px; flex: none; color: var(--terracotta-soft); }
+.mice-contact__list a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.mice-form__title { font-size: clamp(24px, 2.4vw, 30px); }
 .field textarea { width: 100%; font: 400 15px/1.5 var(--sans); color: var(--ink); background: var(--white); border: 1px solid var(--terracotta-soft); border-radius: var(--radius); padding: 13px 16px; resize: vertical; }
 .field textarea:focus { outline: none; border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(200,100,63,.15); }
 .field textarea::placeholder { color: var(--ink-3); }
