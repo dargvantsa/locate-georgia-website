@@ -27,7 +27,7 @@ prices:
   - group: "31 – 45 people"
     price: 456
 image: /img/uploads/georgia-escape/main.jpg
-image_alt: "Gergeti Trinity Church and the Caucasus mountains, Kazbegi"
+image_alt: "Colourful balconied houses of Old Tbilisi"
 featured: true
 order: 10
 published: true
