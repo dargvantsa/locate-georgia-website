@@ -85,7 +85,7 @@ collections:
         widget: list
         required: false
         summary: "{{fields.alt}}"
-        hint: "Shown as a slider after the itinerary. Landscape photos work best."
+        hint: "Add photos one by one here (with captions). To add MANY photos at once, upload them on GitHub into the folder src/img/tours/ named like the end of the tour's web address (e.g. discover-georgia). They are added to this gallery automatically, sorted by file name."
         fields:
           - { label: Photo, name: image, widget: image }
           - { label: Caption, name: alt, widget: string, required: false, hint: "What the photo shows. Also shown on the photo." }

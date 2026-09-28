@@ -1,4 +1,5 @@
 // Locate Georgia — Eleventy build config
+import fs from "node:fs";
 export default function (eleventyConfig) {
   eleventyConfig.ignores.add("src/admin/**");
 
@@ -8,6 +9,17 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/admin");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
+
+
+  // Tour photo folders: every photo uploaded to src/img/tours/<tour-file-name>/ is added to that tour's gallery
+  eleventyConfig.addFilter("folderPhotos", (slug) => {
+    const dir = `src/img/tours/${slug}`;
+    if (!slug || !fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir)
+      .filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f))
+      .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }))
+      .map((f) => ({ image: `/img/tours/${slug}/${encodeURIComponent(f)}` }));
+  });
 
   // All published tours, in the order set in the admin panel
   eleventyConfig.addCollection("tours", (api) =>

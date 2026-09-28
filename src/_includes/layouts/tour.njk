@@ -81,7 +81,8 @@ layout: layouts/base.njk
       {% endif %}
     </section>
 
-    {%- set gal = gallery if (gallery and gallery.length) else [{ image: image, alt: image_alt }] -%}
+    {%- set gal = (gallery or []).concat(page.fileSlug | folderPhotos) -%}
+    {%- if not gal.length -%}{%- set gal = [{ image: image, alt: image_alt }] -%}{%- endif -%}
     {% if gal.length and gal[0].image %}
     <section class="tour-block" aria-labelledby="gal-title">
       <h2 id="gal-title">Gallery</h2>
@@ -89,7 +90,7 @@ layout: layouts/base.njk
         <div class="gallery__track" tabindex="0" aria-label="Tour photos">
           {% for g in gal %}
           <figure class="gallery__slide">
-            <img src="{{ g.image }}" alt="{{ g.alt }}" loading="lazy">
+            <img src="{{ g.image }}" alt="{{ g.alt or (title + ' – photo ' + loop.index) }}" loading="lazy">
             {% if g.alt %}<figcaption>{{ g.alt }}</figcaption>{% endif %}
           </figure>
           {% endfor %}
