@@ -1,9 +1,38 @@
 ---
 layout: layouts/base.njk
 ---
-<article class="wrap tour-body page-top">
-  <p class="eyebrow"><a href="/blog/">Blog</a></p>
-  <h1 class="page-title">{{ title }}</h1>
-  {% if image %}<img class="post-cover" src="{{ image }}" alt="{{ image_alt }}">{% endif %}
-  <div class="prose">{{ content | safe }}</div>
+{%- set catLabel = "" -%}{% for c in blogPage.categories %}{% if c.value == category %}{% set catLabel = c.label %}{% endif %}{% endfor %}
+<section class="post-hero{% if not image %} post-hero--plain{% endif %}" {% if image %}style="--hero-img: url('{{ image }}')"{% endif %}>
+  <div class="wrap post-hero__inner">
+    <p class="eyebrow eyebrow--light"><a href="/blog/">Blog</a>{% if catLabel %} · {{ catLabel }}{% endif %}</p>
+    <h1>{{ title }}</h1>
+    <p class="post-hero__meta">{{ page.date | niceDate }} · {{ content | readingTime }} min read</p>
+  </div>
+</section>
+
+<article class="wrap post">
+  {% if summary %}<p class="post__lede">{{ summary }}</p>{% endif %}
+  <div class="prose post__body">{{ content | safe }}</div>
+
+  <aside class="post-cta">
+    <div>
+      <h2>Inspired to visit Georgia?</h2>
+      <p>Tell us what you would love to see and we will plan the journey around you.</p>
+    </div>
+    <div class="post-cta__btns">
+      {% if site.whatsapp %}<a class="btn btn--primary" href="{{ site.whatsapp }}" target="_blank" rel="noopener"><svg class="tour-side__btn-wa"><use href="#i-wa"/></svg>Chat on WhatsApp</a>{% endif %}
+      <a class="link-underline" href="/tours/">See our tours <svg class="arrow"><use href="#i-arrow"/></svg></a>
+    </div>
+  </aside>
 </article>
+
+{%- set others = [] -%}
+{%- for p in collections.journal -%}{% if p.url != page.url and others.length < 3 %}{% set others = (others.push(p), others) %}{% endif %}{%- endfor -%}
+{% if others.length %}
+<section class="wrap post-more" aria-labelledby="more-posts">
+  <h2 id="more-posts" class="section-title">More from our blog</h2>
+  <div class="post-grid post-grid--3">
+    {% for post in others %}{% set featured = false %}{% include "partials/post-card.njk" %}{% endfor %}
+  </div>
+</section>
+{% endif %}

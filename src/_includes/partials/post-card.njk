@@ -1,0 +1,10 @@
+{%- set catLabel = "" -%}{% for c in blogPage.categories %}{% if c.value == post.data.category %}{% set catLabel = c.label %}{% endif %}{% endfor %}
+<a class="post-card{% if featured %} post-card--featured{% endif %}" href="{{ post.url }}" data-category="{{ post.data.category }}">
+  <div class="post-card__img">{% if post.data.image %}<img src="{{ post.data.image }}" alt="{{ post.data.image_alt }}" loading="lazy">{% endif %}</div>
+  <div class="post-card__body">
+    <p class="post-card__meta">{% if catLabel %}<span class="post-card__cat">{{ catLabel }}</span>{% endif %}<span>{{ post.date | niceDate }}</span><span>{{ post.content | readingTime }} min read</span></p>
+    <h3>{{ post.data.title }}</h3>
+    {% if post.data.summary %}<p class="post-card__sum">{{ post.data.summary }}</p>{% endif %}
+    <span class="post-card__more">Read more <svg class="arrow"><use href="#i-arrow"/></svg></span>
+  </div>
+</a>

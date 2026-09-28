@@ -54,6 +54,13 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("money", (n, cur) =>
     n == null || n === "" ? "" : (cur || "€") + Number(n).toLocaleString("en-US")
   );
+  eleventyConfig.addFilter("readingTime", (html) => {
+    const words = String(html || "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 220));
+  });
+  eleventyConfig.addFilter("niceDate", (d) =>
+    new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+  );
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
   eleventyConfig.addFilter("digits", (s) => String(s || "").replace(/[^\d+]/g, ""));
 

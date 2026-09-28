@@ -110,7 +110,12 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime, date_format: "DD MMM YYYY", time_format: false, format: "YYYY-MM-DD" }
-      - { label: Short description, name: summary, widget: text, required: false }
+      - label: Topic
+        name: category
+        widget: select
+        required: false
+        options: [{ label: Travel tips, value: travel-tips }, { label: Wine, value: wine }, { label: Food, value: food }, { label: Culture, value: culture }, { label: Destinations, value: destinations }, { label: News, value: news }]
+      - { label: Short description, name: summary, widget: text, required: false, hint: "Shown on the blog page and at the top of the post." }
       - { label: Cover photo, name: image, widget: image, required: false }
       - { label: Photo description, name: image_alt, widget: string, required: false }
       - { label: Published, name: published, widget: boolean, default: true }
@@ -259,6 +264,14 @@ collections:
           - { label: Form heading, name: form_title, widget: string }
           - { label: Form text, name: form_text, widget: text, required: false }
           - { label: Thank-you message, name: success_message, widget: text }
+
+      - name: blog_page
+        label: Blog page
+        file: src/_data/blogPage.json
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Top photo, name: hero_image, widget: image }
+          - { label: Introduction, name: intro, widget: text, required: false }
 
       - name: tours_page
         label: Tours page

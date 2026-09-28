@@ -3,21 +3,27 @@ layout: layouts/base.njk
 title: Blog
 permalink: /blog/
 ---
-<section class="journeys wrap page-top">
-  <p class="eyebrow">Blog</p>
-  <h1 class="page-title">Stories from Georgia</h1>
+{%- set b = blogPage -%}
+<section class="page-hero page-hero--short" style="--hero-img: url('{{ b.hero_image }}')">
+  <div class="wrap"><h1>{{ b.title }}</h1></div>
+</section>
+
+<section class="wrap blog">
+  {% if b.intro %}<p class="svc__intro blog__intro">{{ b.intro }}</p>{% endif %}
   {% if collections.journal.length %}
-  <div class="tour-grid" style="margin-top:32px">
+  {%- set used = [] -%}{%- for p in collections.journal -%}{% if p.data.category and not (p.data.category in used) %}{% set used = (used.push(p.data.category), used) %}{% endif %}{%- endfor -%}
+  {% if used.length > 1 %}
+  <div class="chips" role="group" aria-label="Filter by topic">
+    <button type="button" class="chip is-active" data-cat="">All</button>
+    {% for c in b.categories %}{% if c.value in used %}<button type="button" class="chip" data-cat="{{ c.value }}">{{ c.label }}</button>{% endif %}{% endfor %}
+  </div>
+  {% endif %}
+  <div class="post-grid" id="postGrid">
     {% for post in collections.journal %}
-    <a class="tour-card" href="{{ post.url }}">
-      {% if post.data.image %}<div class="tour-card__img"><img src="{{ post.data.image }}" alt="{{ post.data.image_alt }}" loading="lazy"></div>{% endif %}
-      <div class="tour-card__body"><div><h3>{{ post.data.title }}</h3>
-      <div class="tour-card__meta"><span>{{ post.date.toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric"}) }}</span></div></div>
-      <svg class="arrow"><use href="#i-arrow"/></svg></div>
-    </a>
+    {% set featured = loop.first %}{% include "partials/post-card.njk" %}
     {% endfor %}
   </div>
   {% else %}
-  <p style="margin-top:20px;color:var(--ink-2)">New stories are on their way.</p>
+  <p class="svc__intro">New stories are on their way.</p>
   {% endif %}
 </section>

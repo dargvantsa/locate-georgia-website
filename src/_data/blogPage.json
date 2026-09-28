@@ -1,0 +1,31 @@
+{
+  "title": "Our blog",
+  "hero_image": "/img/uploads/5c5a19_90507aefe14746b684e73cc53d200a26~mv2.avif",
+  "intro": "Travel tips, stories and inspiration from Georgia, written by our team in Tbilisi.",
+  "categories": [
+    {
+      "value": "travel-tips",
+      "label": "Travel tips"
+    },
+    {
+      "value": "wine",
+      "label": "Wine"
+    },
+    {
+      "value": "food",
+      "label": "Food"
+    },
+    {
+      "value": "culture",
+      "label": "Culture"
+    },
+    {
+      "value": "destinations",
+      "label": "Destinations"
+    },
+    {
+      "value": "news",
+      "label": "News"
+    }
+  ]
+}

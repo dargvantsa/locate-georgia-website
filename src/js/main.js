@@ -199,6 +199,24 @@
     track.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); go(idx() + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx() - 1); } });
   });
 
+  // Blog: filter posts by topic
+  var chips = document.querySelectorAll('.chip[data-cat]');
+  if (chips.length) {
+    var posts = document.querySelectorAll('#postGrid .post-card');
+    chips.forEach(function (ch) {
+      ch.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.toggle('is-active', c === ch); });
+        var cat = ch.dataset.cat, first = true;
+        posts.forEach(function (p) {
+          var show = !cat || p.dataset.category === cat;
+          p.hidden = !show;
+          p.classList.toggle('post-card--featured', show && first);
+          if (show) first = false;
+        });
+      });
+    });
+  }
+
   // Current year in footer
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
