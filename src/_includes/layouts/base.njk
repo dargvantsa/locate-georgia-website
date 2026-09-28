@@ -45,6 +45,7 @@
 <main>
 {{ content | safe }}
 
+  {% if not hide_cta %}
   <section class="cta">
     <div class="wrap">
       <h2>{{ home.cta.title }}</h2>
@@ -52,6 +53,7 @@
       <p class="cta__note">{{ home.cta.note }}</p>
     </div>
   </section>
+  {% endif %}
 </main>
 
 <footer class="footer">

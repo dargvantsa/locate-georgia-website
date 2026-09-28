@@ -1,0 +1,112 @@
+---
+layout: layouts/base.njk
+title: Contact us
+permalink: /contact/
+hide_cta: true
+---
+{%- set c = contact -%}
+{%- set mapQuery = (site.address + ", Georgia") | urlencode -%}
+<section class="page-hero" style="--hero-img: url('{{ c.hero_image }}')">
+  <div class="wrap">
+    <h1>{{ c.title_line_1 }}{% if c.title_line_2 %}<br><em>{{ c.title_line_2 }}</em>{% endif %}</h1>
+  </div>
+</section>
+
+<section class="wrap contact-intro">
+  <p class="about-intro__lede">{{ c.intro }}</p>
+  <ul class="contact-cards">
+    {% if site.phone_1 or site.phone_2 %}
+    <li class="contact-card">
+      <span class="contact-card__icon"><svg><use href="#i-phone"/></svg></span>
+      <h2>Call us</h2>
+      {% if site.phone_1 %}<a href="tel:{{ site.phone_1 | digits }}">{{ site.phone_1 }}</a>{% endif %}
+      {% if site.phone_2 %}<a href="tel:{{ site.phone_2 | digits }}">{{ site.phone_2 }}</a>{% endif %}
+    </li>
+    {% endif %}
+    <li class="contact-card">
+      <span class="contact-card__icon"><svg><use href="#i-mail"/></svg></span>
+      <h2>Email</h2>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </li>
+    {% if site.whatsapp %}
+    <li class="contact-card">
+      <span class="contact-card__icon"><svg><use href="#i-wa"/></svg></span>
+      <h2>WhatsApp</h2>
+      <a href="{{ site.whatsapp }}" target="_blank" rel="noopener">Chat with us</a>
+    </li>
+    {% endif %}
+    <li class="contact-card">
+      <span class="contact-card__icon"><svg><use href="#i-pin"/></svg></span>
+      <h2>Office</h2>
+      <a href="https://www.google.com/maps/search/?api=1&query={{ mapQuery }}" target="_blank" rel="noopener">{{ site.address }}</a>
+    </li>
+  </ul>
+  <div class="contact-social">
+    <span>Follow us</span>
+    {% set withYoutube = true %}{% include "partials/social.njk" %}
+  </div>
+</section>
+
+<section class="partner contact-plan" id="plan" aria-labelledby="plan-title">
+  <div class="mice-contact">
+    {% if c.form_eyebrow %}<p class="eyebrow">{{ c.form_eyebrow }}</p>{% endif %}
+    <h2 id="plan-title">{{ c.form_title }}</h2>
+    {% if c.form_text %}<p>{{ c.form_text }}</p>{% endif %}
+    <ol class="contact-next">
+      <li><span>1</span>You tell us your dates, group and interests.</li>
+      <li><span>2</span>We send a tailor-made programme and price.</li>
+      <li><span>3</span>We adjust it together until it feels right.</li>
+    </ol>
+  </div>
+  <div class="partner__body">
+    <form class="partner-form" name="plan-journey" method="POST" action="/contact/?sent=1#plan" data-netlify="true" netlify-honeypot="company_website" data-success="{{ c.success_message }}">
+      <input type="hidden" name="form-name" value="plan-journey">
+      <p class="partner-form__hp" hidden><label>Leave this empty <input name="company_website" tabindex="-1" autocomplete="off"></label></p>
+      <label class="field"><span class="sr-only">Name and surname</span><input id="cf-name" name="name" type="text" placeholder="Name and surname" autocomplete="name" required></label>
+      <div class="field-row field-row--half">
+        <label class="field"><span class="sr-only">Email</span><input id="cf-email" name="email" type="email" placeholder="Email" autocomplete="email" required></label>
+        <label class="field"><span class="sr-only">Phone or WhatsApp</span><input id="cf-phone" name="phone" type="tel" placeholder="Phone / WhatsApp" autocomplete="tel"></label>
+      </div>
+      <label class="field"><span class="sr-only">Country you are travelling from</span><input id="cf-country" name="country" type="text" placeholder="Country you are travelling from" autocomplete="country-name"></label>
+      <div class="field-row field-row--half">
+        <label class="field field--labelled"><span>Arrival date</span><input id="cf-date" name="arrival_date" type="date"></label>
+        <label class="field field--labelled"><span>Length of trip</span>
+          <select id="cf-length" name="trip_length">
+            <option value="">Not sure yet</option>
+            {% for o in tourOptions.durations %}<option value="{{ o.value }} days">{{ o.value }} days</option>{% endfor %}
+            <option value="More than 14 days">More than 14 days</option>
+          </select></label>
+      </div>
+      <div class="field-row field-row--half">
+        <label class="field field--labelled"><span>Adults</span><input id="cf-adults" name="adults" type="number" min="1" value="2"></label>
+        <label class="field field--labelled"><span>Children</span><input id="cf-children" name="children" type="number" min="0" value="0"></label>
+      </div>
+      <fieldset class="contact-interests">
+        <legend>What interests you?</legend>
+        <div class="contact-interests__grid">
+          {% for o in tourOptions.categories %}
+          <label class="check"><input type="checkbox" name="interests" value="{{ o.label }}"><span>{{ o.label }}</span></label>
+          {% endfor %}
+        </div>
+      </fieldset>
+      <label class="field"><span class="sr-only">Message</span><textarea id="cf-message" name="message" rows="4" placeholder="Anything else we should know? Places you want to see, hotels you like, budget…"></textarea></label>
+      <button type="submit" class="btn btn--primary partner-form__btn">{{ c.button_label }}</button>
+      <p class="partner-form__status" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+
+<section class="wrap contact-map" aria-labelledby="map-title">
+  <div class="contact-map__text">
+    <h2 id="map-title" class="section-title">{{ c.map_title }}</h2>
+    {% if c.map_text %}<p>{{ c.map_text }}</p>{% endif %}
+    <ul class="mice-contact__list contact-map__list">
+      <li><svg><use href="#i-pin"/></svg><span>{{ site.address }}</span></li>
+      {% if c.office_hours %}<li><svg><use href="#i-clock"/></svg><span>{{ c.office_hours }}</span></li>{% endif %}
+    </ul>
+    <a class="btn btn--primary" href="https://www.google.com/maps/dir/?api=1&destination={{ mapQuery }}" target="_blank" rel="noopener">Get directions <svg class="arrow"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="contact-map__frame">
+    <iframe title="Map: {{ site.address }}" src="https://www.google.com/maps?q={{ mapQuery }}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>

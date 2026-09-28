@@ -273,6 +273,23 @@ collections:
           - { label: Top photo, name: hero_image, widget: image }
           - { label: Introduction, name: intro, widget: text, required: false }
 
+      - name: contact_page
+        label: Contact us page
+        file: src/_data/contact.json
+        fields:
+          - { label: Title line 1, name: title_line_1, widget: string }
+          - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
+          - { label: Top photo, name: hero_image, widget: image }
+          - { label: Introduction, name: intro, widget: text }
+          - { label: Office hours, name: office_hours, widget: string, required: false, hint: "e.g. Monday to Friday, 10:00–19:00. Leave empty to hide." }
+          - { label: Form small heading, name: form_eyebrow, widget: string, required: false }
+          - { label: Form title, name: form_title, widget: string }
+          - { label: Form text, name: form_text, widget: text, required: false }
+          - { label: Button label, name: button_label, widget: string }
+          - { label: Thank-you message, name: success_message, widget: text }
+          - { label: Map section title, name: map_title, widget: string }
+          - { label: Map section text, name: map_text, widget: text, required: false }
+
       - name: tours_page
         label: Tours page
         file: src/_data/toursPage.json
