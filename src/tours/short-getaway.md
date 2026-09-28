@@ -1,5 +1,5 @@
 ---
-title: Short getaway in Georgia
+title: "1"
 summary: Five days of Tbilisi's old town, Mtskheta and a first taste of Georgian
   wine and food, for travellers short on time.
 duration: 5

@@ -1,5 +1,5 @@
 ---
-title: 8,000 years of Georgian wine
+title: "2"
 summary: Twelve days through Georgia's history and its 8,000-year winemaking
   tradition, from qvevri cellars in Kakheti to ancient capitals.
 duration: 12

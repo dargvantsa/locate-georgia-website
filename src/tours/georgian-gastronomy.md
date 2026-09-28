@@ -1,5 +1,5 @@
 ---
-title: Georgian gastronomy
+title: "4"
 summary: A journey through Georgian kitchens, markets and supras, with cooking,
   tasting and time with the families who keep the traditions alive.
 duration: 10
