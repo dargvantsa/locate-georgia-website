@@ -6,13 +6,8 @@ hide_cta: true
 ---
 {%- set c = contact -%}
 {%- set mapQuery = (site.address + ", Georgia") | urlencode -%}
-<section class="page-hero" style="--hero-img: url('{{ c.hero_image }}')">
-  <div class="wrap">
-    <h1>{{ c.title_line_1 }}{% if c.title_line_2 %}<br><em>{{ c.title_line_2 }}</em>{% endif %}</h1>
-  </div>
-</section>
-
 <section class="wrap contact-intro">
+  <h1 class="sr-only">Contact us</h1>
   <p class="about-intro__lede">{{ c.intro }}</p>
   <ul class="contact-cards">
     {% if site.phone_1 or site.phone_2 %}

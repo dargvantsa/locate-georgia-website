@@ -277,9 +277,6 @@ collections:
         label: Contact us page
         file: src/_data/contact.json
         fields:
-          - { label: Title line 1, name: title_line_1, widget: string }
-          - { label: Title line 2 (italic), name: title_line_2, widget: string, required: false }
-          - { label: Top photo, name: hero_image, widget: image }
           - { label: Introduction, name: intro, widget: text }
           - { label: Office hours, name: office_hours, widget: string, required: false, hint: "e.g. Monday to Friday, 10:00–19:00. Leave empty to hide." }
           - { label: Form small heading, name: form_eyebrow, widget: string, required: false }
