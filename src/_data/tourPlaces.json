@@ -243,5 +243,40 @@
   "lat": 41.8268,
   "lng": 46.2767,
   "region": "kakheti"
+ },
+ {
+  "value": "dmanisi",
+  "label": "Dmanisi",
+  "lat": 41.3383,
+  "lng": 44.3436,
+  "region": "kvemo-kartli"
+ },
+ {
+  "value": "bolnisi",
+  "label": "Bolnisi Sioni",
+  "lat": 41.4475,
+  "lng": 44.5386,
+  "region": "kvemo-kartli"
+ },
+ {
+  "value": "khertvisi",
+  "label": "Khertvisi Fortress",
+  "lat": 41.4806,
+  "lng": 43.2847,
+  "region": "samtskhe"
+ },
+ {
+  "value": "nekresi",
+  "label": "Nekresi Monastery",
+  "lat": 41.9658,
+  "lng": 45.7964,
+  "region": "kakheti"
+ },
+ {
+  "value": "gremi",
+  "label": "Gremi",
+  "lat": 42.0028,
+  "lng": 45.7097,
+  "region": "kakheti"
  }
 ]
