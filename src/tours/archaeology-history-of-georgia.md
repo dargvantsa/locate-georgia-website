@@ -137,7 +137,7 @@ itinerary:
     text: After breakfast at the hotel, enjoy free time depending on the flight
       schedule. Check out from the hotel and transfer to Tbilisi International
       Airport for departure.
-featured: false
+featured: true
 order: 10
 published: true
 ---
